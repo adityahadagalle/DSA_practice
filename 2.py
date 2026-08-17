@@ -1193,19 +1193,31 @@ from collections import deque
 
 
 
-nums = [1,2]
-left=0
-right=len(nums)-1
-while left<right:
-    mid=left+(right-left)//2
+# nums = [1,2]
+# left=0
+# right=len(nums)-1
+# while left<right:
+#     mid=left+(right-left)//2
   
-    if nums[mid-1]<nums[mid]>nums[mid+1]:
-        print(mid)
-        break
-    if nums[mid]<nums[mid+1]:
-        left=mid+1
-    else:
-        right=mid
+#     if nums[mid-1]<nums[mid]>nums[mid+1]:
+#         print(mid)
+#         break
+#     if nums[mid]<nums[mid+1]:
+#         left=mid+1
+#     else:
+#         right=mid
         
+        
+nums=[1,1,1,2,2,3,3]
+i=0
+j=i+1
+while j<len(nums):
+    if nums[i]==nums[j]:
+        j+=1
+    else:
+        nums[i+1],nums[j]=nums[j],nums[i+1]
+        i+=1
+        j+=1
+print(nums)
     
     
