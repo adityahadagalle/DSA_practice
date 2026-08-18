@@ -1246,13 +1246,31 @@ from collections import deque
 
 
 
-nums = [0,1,2,2,3,0,4,2]
-val = 2
+# nums = [0,1,2,2,3,0,4,2]
+# val = 2
+# i=0
+# for j in range(len(nums)):
+
+#     if nums[j] != val:
+#         nums[i] = nums[j]
+#         i += 1
+# print(nums)
+nums1 = [1, 4, 7,9,10,1,1,1]
+nums2 = [2, 3, 6, 8]
+arr=[]
 i=0
-for j in range(len(nums)):
-
-    if nums[j] != val:
-        nums[i] = nums[j]
-        i += 1
-print(nums)
-
+j=0
+while  i<len(nums1) and j<len(nums2):
+    if nums1[i]<nums2[j]:
+        arr.append(nums1[i])
+        i+=1
+    else:
+        arr.append(nums2[j])
+        j+=1
+while i<len(nums1):
+    arr.append(nums1[i])
+    i+=1  
+while j<len(nums2):
+    arr.append(nums2[j])
+    j+=1
+print(arr)        
