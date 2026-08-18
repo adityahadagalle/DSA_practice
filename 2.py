@@ -1232,15 +1232,27 @@ from collections import deque
 #     j+=1
 # print(nums)            
     
-nums = [1,1,2,2,2,3,4]
-i=0
-count=0
-for j in range(1,len(nums)):
-    if nums[i]!=nums[j]:
-        i+=1
-        nums[i],nums[j]=nums[j],nums[i]
-
     
-  
-print(i+1)        
+    
+# nums = [1,1,2,2,2,3,4]
+# i=0
+# count=0
+# for j in range(1,len(nums)):
+#     if nums[i]!=nums[j]:
+#         i+=1
+#         nums[i],nums[j]=nums[j],nums[i]
+# print(i+1)        
+# print(nums)
+
+
+
+nums = [0,1,2,2,3,0,4,2]
+val = 2
+i=0
+for j in range(len(nums)):
+
+    if nums[j] != val:
+        nums[i] = nums[j]
+        i += 1
 print(nums)
+
