@@ -1208,16 +1208,39 @@ from collections import deque
 #         right=mid
         
         
-nums=[1,1,1,2,2,3,3]
+# nums=[1,1,1,2,2,3,3]
+# i=0
+# j=i+1
+# while j<len(nums):
+#     if nums[i]==nums[j]:
+#         j+=1
+#     else:
+#         nums[i+1],nums[j]=nums[j],nums[i+1]
+#         i+=1
+#         j+=1
+# print(nums)
+
+
+# nums = [0,1,0,3,1,2]
+# i=0
+# j=1
+# while j<len(nums):
+#     if nums[j]!=0:
+#         nums[i],nums[j]=nums[j],nums[i]
+#         i+=1
+        
+#     j+=1
+# print(nums)            
+    
+nums = [1,1,2,2,2,3,4]
 i=0
-j=i+1
-while j<len(nums):
-    if nums[i]==nums[j]:
-        j+=1
-    else:
-        nums[i+1],nums[j]=nums[j],nums[i+1]
+count=0
+for j in range(1,len(nums)):
+    if nums[i]!=nums[j]:
         i+=1
-        j+=1
+        nums[i],nums[j]=nums[j],nums[i]
+
+    
+  
+print(i+1)        
 print(nums)
-    
-    
