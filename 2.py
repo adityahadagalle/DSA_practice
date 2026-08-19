@@ -1255,22 +1255,82 @@ from collections import deque
 #         nums[i] = nums[j]
 #         i += 1
 # print(nums)
-nums1 = [1, 4, 7,9,10,1,1,1]
-nums2 = [2, 3, 6, 8]
-arr=[]
+
+
+
+# nums1 = [1, 4, 7,9,10,1,1,1]
+# nums2 = [2, 3, 6, 8]
+# arr=[]
+# i=0
+# j=0
+# while  i<len(nums1) and j<len(nums2):
+#     if nums1[i]<nums2[j]:
+#         arr.append(nums1[i])
+#         i+=1
+#     else:
+#         arr.append(nums2[j])
+#         j+=1
+# while i<len(nums1):
+#     arr.append(nums1[i])
+#     i+=1  
+# while j<len(nums2):
+#     arr.append(nums2[j])
+#     j+=1
+# print(arr)        
+
+
+# arr = [1,2,0,4,5,0,6,7]
+# index=-1
+# right=len(arr)
+# for i in range(len(arr) - 1, index, -1):
+#     arr[i] = arr[i - 1]
+#     if arr[i]!=0:
+#         right-=1
+#     if arr[i]==0:
+#         arr[i+1]=0
+#         right=i
+
+        
+# print(arr)
+
+
+
+# nums = ["a","a","b","b","c","c","c"]
+# i=0
+# count=0
+# for right in range(len(nums)):
+#     count+=1
+#     if right>0:
+#         if nums[right-1]!=nums[right]:
+#             nums[i-1]=str(count)
+#             count=0
+#             i=right
+# print(nums)
+
+nums= ["a","a","b","b","c","c","c"]
 i=0
-j=0
-while  i<len(nums1) and j<len(nums2):
-    if nums1[i]<nums2[j]:
-        arr.append(nums1[i])
-        i+=1
-    else:
-        arr.append(nums2[j])
-        j+=1
-while i<len(nums1):
-    arr.append(nums1[i])
-    i+=1  
-while j<len(nums2):
-    arr.append(nums2[j])
-    j+=1
-print(arr)        
+count=1
+for right in range(1,len(nums)):
+    if right>0:
+        count+=1
+        if nums[right]!=nums[right-1]:
+            nums[i+1]=str(count)
+            i=right
+            count=1
+nums[i+1]=count
+print(nums)        
+
+# nums = ["a","a","b","b","c","c","c"]
+
+# i = 0
+# count = 0
+
+# for right in range(len(nums)):
+
+#     count += 1
+
+#     if right > 0 and nums[right-1] != nums[right]:
+#         nums[i+1] = str(count)
+#         i = right
+#         count = 0
+#     nums[i+1]=count    
