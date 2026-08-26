@@ -1,4 +1,4 @@
-# nums = [1,5,4,2,9,9,9]
+    # nums = [1,5,4,2,9,9,9]
 # k = 3
 
 # left = 0
@@ -1219,118 +1219,315 @@ from collections import deque
 #         i+=1
 #         j+=1
 # print(nums)
-
-
-# nums = [0,1,0,3,1,2]
+    
+# a = [-1, 0, 1, 2, -1, -4]
+# a.sort()
 # i=0
-# j=1
-# while j<len(nums):
-#     if nums[j]!=0:
-#         nums[i],nums[j]=nums[j],nums[i]
-#         i+=1
+# result=[]
+# n=len(a)
+# for i in range(n - 2):
+
+#     if i > 0 and a[i] == a[i - 1]:
+#         continue
+
+#     left = i + 1
+#     right = n - 1
+#     sum = -1 * a[i]
+
+#     while left < right:
+#         s = a[left] + a[right]
+
+#         if s == sum:
+#             result.append([a[i], a[left], a[right]])
+
+#             left += 1
+#             right -= 1
+
+#             while left < n and a[left] == a[left - 1]:
+#                 left += 1
+
+#             while right > 0 and a[right] == a[right + 1]:
+#                 right -= 1
+
+#         elif s < sum:
+#             left += 1
+#         else:
+#             right -= 1
+# print(result)
+# print(a)
+
+  
+  
+    
+# a = [-1, 0, 1, 2, -1, -4]
+# a.sort()
+# i=0
+# result=[]
+# n=len(a)
+# for i in range(n - 2):
+#     if i>0 and a[i]==a[i-1]:
+#         continue
+#     left=i+1
+#     right=n-1
+#     sum=-1*a[i]
+    
+#     while left<right:
+#         s=a[left]+a[right ]
+#         if s==sum:
+#             result.append([a[i],a[left],a[right ]])
+#             left+=1
+#             right-=1
+#             while (left<n and a[left ]==a[left - 1]):
+#                 left+=1
+#             while (right>0 and a[right ]==a[right - 1]):
+            
+#                 right+=1                      
+#         elif s<sum:
+#             left+=1
+#         else:
+#             right-=1  
+# print(result)            
+
+
+
+    
+# a = [-1, 0, 1, 2, -1, -4]
+# a.sort()
+# i=0
+# result=[]
+# n=len(a)
+# for i in range(n - 2):
+
+#     if i > 0 and a[i] == a[i - 1]:
+#         continue
+
+#     left = i + 1
+#     right = n - 1
+#     sum = -1 * a[i]
+
+#     while left < right:
+#         s = a[left] + a[right]
+
+#         if s == sum:
+#             result.append([a[i], a[left], a[right]])
+
+#             left += 1
+#             right -= 1
+
+#             while left < n and a[left] == a[left - 1]:
+#                 left += 1
+
+#             while right > 0 and a[right] == a[right + 1]:
+#                 right -= 1
+
+#         elif s < sum:
+#             left += 1
+#         else:
+#             right -= 1
+# print(result)
+# print(a)
+
+
+# class Solution:
+#     def threeSumClosest(self, nums: List[int], target: int) -> int:
+#         nums.sort()
+
+#         result_sum = nums[0] + nums[1] + nums[2]
+#         max_diff = abs(result_sum - target)
+
+#         for i in range(len(nums) - 2):
+
+#             left = i + 1
+#             right = len(nums) - 1
+
+#             while left < right:
+
+#                 sum = nums[i] + nums[left] + nums[right]
+
+#                 diff = abs(sum - target)
+
+#                 if diff < max_diff:
+#                     max_diff = diff
+#                     result_sum = sum
+
+#                 if sum < target:
+#                     left += 1
+
+#                 elif sum > target:
+#                     right -= 1
+
+#                 else:
+#                     return sum
+
+#         return result_sum
+    
+
+# a = [-4, -1, 2, 5]
+# target = 3
+# a.sort()
+# i=0
+# n=len(a)
+# res=a[0]+a[1]+a[2]
+# max_diff=abs(target-res)
+# for i in range(n - 2):
+#     left = i + 1
+#     right = n - 1
+    
+
+#     while left < right:
+#         s = a[i]+a[left] + a[right]    
+#         diff=abs(target-s)
+#         if diff<max_diff:
+#             max_diff=diff
+#             res=s
+            
+#         if s<target:
+#             left+=1
+#         else:
+#             right-=1
+# print(res)
         
-#     j+=1
-# print(nums)            
-    
-    
-    
-# nums = [1,1,2,2,2,3,4]
-# i=0
+
+
+# a = [-3, -1, 0, 2, 4]
+# target = 2
 # count=0
-# for j in range(1,len(nums)):
-#     if nums[i]!=nums[j]:
-#         i+=1
-#         nums[i],nums[j]=nums[j],nums[i]
-# print(i+1)        
-# print(nums)
+# n=len(a)
+
+    
+# for i in range(n-2):
+#     left=i+1
+#     right=n-1
+    
+#     while left<right:
+#         sum=a[i]+a[left]+a[right]
+#         print(a[i],a[left],a[right])
+#         if sum<target:
+#             count+=right-left
+#             left+=1
 
 
-
-# nums = [0,1,2,2,3,0,4,2]
-# val = 2
-# i=0
-# for j in range(len(nums)):
-
-#     if nums[j] != val:
-#         nums[i] = nums[j]
-#         i += 1
-# print(nums)
-
-
-
-# nums1 = [1, 4, 7,9,10,1,1,1]
-# nums2 = [2, 3, 6, 8]
-# arr=[]
-# i=0
-# j=0
-# while  i<len(nums1) and j<len(nums2):
-#     if nums1[i]<nums2[j]:
-#         arr.append(nums1[i])
-#         i+=1
-#     else:
-#         arr.append(nums2[j])
-#         j+=1
-# while i<len(nums1):
-#     arr.append(nums1[i])
-#     i+=1  
-# while j<len(nums2):
-#     arr.append(nums2[j])
-#     j+=1
-# print(arr)        
-
-
-# arr = [1,2,0,4,5,0,6,7]
-# index=-1
-# right=len(arr)
-# for i in range(len(arr) - 1, index, -1):
-#     arr[i] = arr[i - 1]
-#     if arr[i]!=0:
-#         right-=1
-#     if arr[i]==0:
-#         arr[i+1]=0
-#         right=i
-
+#         else:
+#             right-=1
         
-# print(arr)
+# print(count)
+# # [-3, -1, 4] → 0 < 2
+# # [-3,  0,  2] → -1 < 2
+# # [-3,  0,  4] → 1 < 2
+# # [-1,  0,  2] → 1 < 2
 
 
 
-# nums = ["a","a","b","b","c","c","c"]
-# i=0
+# a = [1, 2, 3, 4, 5, 7, 8]
+# limit = 5
+# n=len(a)
 # count=0
-# for right in range(len(nums)):
-#     count+=1
-#     if right>0:
-#         if nums[right-1]!=nums[right]:
-#             nums[i-1]=str(count)
-#             count=0
-#             i=right
-# print(nums)
+# for i in range(n-2):
+#     left=i+1
+#     right=n-1
+    
+#     while left < right:
+#         if a[right]-a[left]<limit:
+#             print(a[i],a[left],a[right])
+#             count+=right-left
+#             left+=1
+#         else:
+#             right-=1
+# print(count)            
+        
+        
+        
+# ##########BACKTRACKING REVISION####################################################################################################################################################   
+# nums = [1, 2, 3]
+# res=[]
+# path=[]
+# def backtrack(nums,start):
+#     res.append(path[:])
+#     for i in range(start,len(nums)):
+#         path.append(nums[i])
+#         backtrack(nums,i+1)
+#         path.pop()
+# backtrack([1,2,3],0)
+# print(res)        
+# nums = [1, 2, 3]
 
-nums= ["a","a","b","b","c","c","c"]
+# res = []
+# path = []
+  
+
+
+    
+
+
+
+# nums = [1, 2, 3, 4]
+# k = 2
+# path=[]
+# res=[]
+# def backtrack(nums,start):
+#     if len(path)==2:
+#         res.append(path[:])
+#         return
+        
+    
+#     for i in range(start,len(nums)):
+#         path.append(nums[i])
+#         backtrack(nums,i+1)
+#         path.pop()
+# backtrack(nums,0)
+# print(res)          
+
+# s="aab"
+
+# path=[]
+# res=[]
+# def backtrack(nums,start):
+#     if start == len(s):
+#         res.append(path[:])
+#         return
+#     for end in range(start,len(nums)):
+#         part=s[start:end+1]
+#         if part==part[::-1]:
+            
+#             path.append(part)
+#             backtrack(nums,end+1)
+#             path.pop()
+# backtrack(s,0)   
+# print(res)     
+
+
+# nums=[1,2,3]
+# res=[]
+# path=[]
+# used = [False] * len(nums)
+# def backtrack(nums):
+#     if len(path)==len(nums):
+#         res.append(path[:])
+#         return
+#     for i in range(len(nums)):
+#         if not used[i]:
+            
+#             path.append(nums[i])
+#             used[i]=True
+#             backtrack(nums)
+#             path.pop()
+#             used[i]=False
+# backtrack(nums)
+# print(res)
+        
+        
+nums=[0,1,2,0,1,2]
 i=0
-count=1
-for right in range(1,len(nums)):
-    if right>0:
-        count+=1
-        if nums[right]!=nums[right-1]:
-            nums[i+1]=str(count)
-            i=right
-            count=1
-nums[i+1]=count
-print(nums)        
-
-# nums = ["a","a","b","b","c","c","c"]
-
-# i = 0
-# count = 0
-
-# for right in range(len(nums)):
-
-#     count += 1
-
-#     if right > 0 and nums[right-1] != nums[right]:
-#         nums[i+1] = str(count)
-#         i = right
-#         count = 0
-#     nums[i+1]=count    
+mid=0
+j=len(nums)-1
+while mid<=j:
+    if nums[mid]==1:
+        mid+=1
+    elif nums[mid]==0:
+        nums[mid],nums[i]=nums[i],nums[mid]
+        mid+=1
+        i+=1
+    else:
+        nums[mid],nums[j]=nums[j],nums[mid]
+        j-=1
+print(nums)          
