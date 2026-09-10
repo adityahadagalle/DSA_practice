@@ -1846,17 +1846,158 @@ from collections import deque
 # print(res)
 
 
+# nums = [73, 74, 75, 71, 69, 72, 76, 73]
+# stack=[]
+# res=[0]*len(nums)
 
-nums = [73, 74, 75, 71, 69, 72, 76, 73]
-stack=[]
-res=[0]*len(nums)
+# for i in range(len(nums)):
+#     while stack and nums[i]>nums[stack[-1]]:
+#         res[stack[-1]]=i-stack[-1]
+#         stack.pop()
+#     stack.append(i)
+# print(res)    
+        
+        
+# nums = [1,2,3,4,5]
+# stack=[]
+# res=[1]*len(nums)
+# for i in range(len (nums)):
+#     while stack and nums[i]>=nums[stack[-1]]:
+#         stack.pop()
+#     if stack:
+#         res[i]=(i-stack[-1])
+#     else:
+#         res[i] = i + 1        
+#     stack.append(i)
+# print(res)
+        
+        
+        
 
+
+
+# nums = [10,5,-6]
+# stack=[]
+# res=[]
+# for i in range(len (nums)):   
+#     alive=True
+#     if nums[i]<0:
+
+#         while stack and stack[-1]>0:
+#             if stack[-1]<abs(nums[i]):
+#                 stack.pop()
+#             elif abs(nums[i]) == stack[-1]:
+#                 stack.pop()
+#                 alive = False
+#                 break
+                
+#             else:
+#                 alive=False
+#                 break
+#         if alive:
+#             stack.append(nums[i])
+#     else:
+        
+#         stack.append(nums[i])    
+# print(stack)
+
+
+# nums = [100, 80, 60, 70, 60, 75, 85]
+# stack=[]
+# res=[1]*len(nums)
+# for i in range(len(nums)):
+#     while stack and nums[i]>=nums[stack[-1]]:
+#         stack.pop()
+#     if stack:
+#             res[i]=(i-stack[-1])
+#     else:
+#             res[i]=i+1
+#     stack.append(i)
+# print(res)        
+
+
+# s = "deeedbbcccbdaa"
+# k = 3
+# stack=[]
+# count=1
+# for i in range(len(s)):
+#     if stack and stack[-1] ==s[i]:
+#         count+=1
+
+#     if count==3:
+#         while stack and count!=0:
+#             stack.pop()
+#             count-=1
+#     stack.append(s[i])
+        
+# print(stack)        
+
+# s = "deeedbbcccbdaa"
+# k = 3
+
+# stack = []
+
+# for ch in s:
+#     if stack and stack[-1][0] == ch:
+#         stack[-1] = (ch, stack[-1][1] + 1)
+#     else:
+#         stack.append((ch, 1))
+
+#     if stack[-1][1] == k:
+#         stack.pop()
+
+# result = ""
+
+# for ch, count in stack:
+#     result += ch * count
+
+# print(result)
+
+
+# nums = "10200"
+# stack = []
+# k = 1
+
+# 1. Track exactly how many deletions you are allowed to make
+# count = k 
+
+# for i in range(len(nums)):
+#     while stack and nums[i] < stack[-1] and count > 0:
+#         stack.pop()
+#         count -= 1
+        
+#     stack.append(nums[i])
+
+# 2. If the string was already in increasing order, drop the largest remaining digits
+# if count > 0:
+#     stack = stack[:-count]
+
+# 3. Join the list, remove leading zeros, and handle the empty string edge case
+# print(stack)
+
+
+
+# num = "123456"
+# k = 3
+# stack=[]
+# count=3
+# for i in range(len(num)):
+#     while stack and (stack[-1])>(num[i]) and count>0:
+
+#             stack.pop()
+#             count-=1
+#     stack.append(num[i])          
+# while count>0:
+#     stack.pop()
+#     count-=1
+
+
+# print("".join(stack))       
+
+nums="23123"
+sta=[]
 for i in range(len(nums)):
-    while stack and nums[i]>nums[stack[-1]]:
-        res[stack[-1]]=i-stack[-1]
-        stack.pop()
-    stack.append(i)
-print(res)    
-        
-        
-        
+    while sta and sta[-1]>nums[i]:
+        sta.pop()
+    sta.append(nums[i])
+print(sta)
