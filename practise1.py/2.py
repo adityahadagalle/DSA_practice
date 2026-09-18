@@ -2000,4 +2000,4 @@ for i in range(len(nums)):
     while sta and sta[-1]>nums[i]:
         sta.pop()
     sta.append(nums[i])
-print(sta)
+print(s
