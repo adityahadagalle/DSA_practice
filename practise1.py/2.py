@@ -2002,20 +2002,40 @@ from collections import deque
 #     sta.append(nums[i])
 # print(sta)
 
-heights = [4, 2, 3, 2, 4]
-stack = []
-res = [0] * len(heights)
+# heights = [4, 2, 3, 2, 4]
+# stack = []
+# res = [0] * len(heights)
 
-for i in range(len(heights)-1):
-    while stack and heights[i]<stack[-1]:
-        stack.pop()
-        res[i]+=1
-    if stack:
-        res[i]+=1
-    stack.append(heights[i])
-print(res)
-
-
+# for i in range(len(heights)-1):
+#     while stack and heights[i]<stack[-1]:
+#         stack.pop()
+#         res[i]+=1
+#     if stack:
+#         res[i]+=1
+#     stack.append(heights[i])
+# print(res)
 
 
+
+# nums = [1,1,1,1,1,2,2,2,2,3,4]
+# i=0
+# for j in range(1,len(nums)):
+#     if nums[j]!=nums[i]:
+#         i+=1
+        
+#         nums[i],nums[j]=nums[j],nums[i]
     
+
+# print(nums)
+    
+    
+    
+nums = [2,0,1,2,2,3,0,4,2]
+val = 2
+i=0
+for j in range(len(nums)):
+    if nums[j]!=val:
+        nums[i],nums[j]=nums[j],nums[i]
+        i+=1
+print(nums)
+            
