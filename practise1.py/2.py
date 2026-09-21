@@ -1994,10 +1994,28 @@ from collections import deque
 
 # print("".join(stack))       
 
-nums="23123"
-sta=[]
-for i in range(len(nums)):
-    while sta and sta[-1]>nums[i]:
-        sta.pop()
-    sta.append(nums[i])
-print(s
+# nums="23123"
+# sta=[]
+# for i in range(len(nums)):
+#     while sta and sta[-1]>nums[i]:
+#         sta.pop()
+#     sta.append(nums[i])
+# print(sta)
+
+heights = [4, 2, 3, 2, 4]
+stack = []
+res = [0] * len(heights)
+
+for i in range(len(heights)-1):
+    while stack and heights[i]<stack[-1]:
+        stack.pop()
+        res[i]+=1
+    if stack:
+        res[i]+=1
+    stack.append(heights[i])
+print(res)
+
+
+
+
+    
