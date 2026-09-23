@@ -2039,17 +2039,18 @@ from collections import deque
 #         i+=1
 # print(nums)
             
+
 nums=[1,1,1,2,2,2,3,3,3]
-i=0
+i=1
 count=1
-for j in range(len(nums)):
-    if count<2:
-        if nums[i]==nums[j]:
-            i+=1
-            count+=1
-    if count==2:
-        if nums[i]!=nums[j]:
-            i+=1
-            nums[i]=nums[j]
-            count=1
+for j in range(1,len(nums)):
+    if nums[j]!=nums[j-1]:
+        count=1
+    else:
+        count+=1
+
+        
+    if count<=2:
+        nums[i]=nums[j]
+        i+=1
 print(nums)
