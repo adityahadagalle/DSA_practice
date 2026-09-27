@@ -2040,17 +2040,85 @@ from collections import deque
 # print(nums)
             
 
-nums=[1,1,1,2,2,2,3,3,3]
-i=1
-count=1
-for j in range(1,len(nums)):
-    if nums[j]!=nums[j-1]:
-        count=1
-    else:
-        count+=1
+# nums=[1,1,1,2,2,2,3,3,3]
+# i=1
+# count=1
+# for j in range(1,len(nums)):
+#     if nums[j]!=nums[j-1]:
+#         count=1
+#     else:
+#         count+=1
 
         
-    if count<=2:
-        nums[i]=nums[j]
-        i+=1
-print(nums)
+#     if count<=2:
+#         nums[i]=nums[j]
+#         i+=1
+# print(nums)
+
+
+# nums = ["a","b","b","b","c"]
+# i=0
+# count=1
+# for j in range(1,len(nums)):
+#     if nums[j]!=nums[j-1]:
+#         nums[i]=nums[j-1]
+#         nums[i+1]=str(count)
+#         i+=1
+#         count=1
+#         i+=1
+#     else:
+#         count+=1
+# if i+1<len(nums):
+    
+#     nums[i+1]=str(count)
+# print(nums)
+
+# nums=[1,0,2,0,3]
+# i=len(nums)-1
+# for j in range(len(nums) - 1, -1, -1):
+    
+#     if nums[j]==0:
+#         nums[i]=nums[j+1]
+        
+#         nums[j+1]=0
+#         i=j
+
+# print(nums)     
+
+
+# source = [1, 0, 2, 3]
+# N = 4
+# destination = [0] * (2 * N)
+# s = 0
+# d = 0
+
+# for s in range(N):
+#     if source[s] == 0:
+#         destination[d] = 0
+#         d += 1
+#         destination[d] = 0
+#     else:
+#         destination[d] = source[s]
+
+#     d += 1
+    
+    
+
+# print(destination[:d-1])
+
+
+source = [1, 0, 2, 3]
+N = 4
+destination = [0] * (2 * N)
+s = 0
+d=0
+for s in range(N):
+    if source[s]!=0:
+        destination[d]=source[s]
+    else:
+        destination[d]=0
+        d+=1
+        destination[d]=0
+    d+=1
+print(destination)
+        
