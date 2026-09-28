@@ -2107,18 +2107,52 @@ from collections import deque
 # print(destination[:d-1])
 
 
-source = [1, 0, 2, 3]
-N = 4
-destination = [0] * (2 * N)
-s = 0
-d=0
-for s in range(N):
-    if source[s]!=0:
-        destination[d]=source[s]
-    else:
-        destination[d]=0
-        d+=1
-        destination[d]=0
-    d+=1
-print(destination)
+# source = [1, 0, 2, 3]
+# N = 4
+# destination = [0] * (2 * N)
+# s = 0
+# d=0
+# for s in range(N):
+#     if source[s]!=0:
+#         destination[d]=source[s]
+#     else:
+#         destination[d]=0
+#         d+=1
+#         destination[d]=0
+#     d+=1
+# print(destination)
         
+        
+        
+# nums=[1,2,3,4]
+# i=0
+
+# for j in range(len(nums)):
+#     if nums[j]%2==0:
+#         if j%2==0:
+#             i+=1
+#         else:
+#             if i<len(nums):
+#                 nums[i+1],nums[j]=nums[j],nums[i+1]
+#                 i+=1
+#     if nums[j]%2!=0:
+#         if j%2==0:
+            
+#             continue
+            
+#         else:
+#             i+=1
+# print(nums)
+
+
+nums=[1,2,3,4]
+i=0
+j=1
+while i<len(nums) or j<len(nums)-1:
+    while  nums[i]%2==0 and i<len(nums):
+        i+=2
+    while nums[j]%2!=0 and j<len(nums)-1:
+        j+=2
+    if i<len(nums) and j<len(nums):
+        nums[i],nums[j]=nums[j],nums[i]
+print(nums)
