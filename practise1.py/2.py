@@ -2145,14 +2145,3 @@ from collections import deque
 # print(nums)
 
 
-nums=[1,2,3,4]
-i=0
-j=1
-while i<len(nums) or j<len(nums)-1:
-    while  nums[i]%2==0 and i<len(nums):
-        i+=2
-    while nums[j]%2!=0 and j<len(nums)-1:
-        j+=2
-    if i<len(nums) and j<len(nums):
-        nums[i],nums[j]=nums[j],nums[i]
-print(nums)
