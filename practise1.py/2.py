@@ -2477,6 +2477,40 @@ from collections import deque
 
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# def find(root,best):
+#     while root:
+#         if root.val==key:
+#             return root.val
+#         elif root.val>key:
+#             best=min(best,root.val)
+#             root=root.left
+#         else:
+#             root=root.right
+#     return best
+# root = TreeNode(15)
+
+# root.left = TreeNode(10)
+# root.right = TreeNode(20)
+
+# root.left.left = TreeNode(5)
+# root.left.right = TreeNode(12)
+
+# root.right.left = TreeNode(18)
+# root.right.right = TreeNode(25)
+
+# key = 17
+# print(find(root,float('inf')))
+
+
+
+
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -2487,9 +2521,9 @@ def find(root,best):
         if root.val==key:
             return root.val
         elif root.val>key:
-            best=min(best,root.val)
             root=root.left
         else:
+            best=max(best,root.val)
             root=root.right
     return best
 root = TreeNode(15)
@@ -2504,4 +2538,4 @@ root.right.left = TreeNode(18)
 root.right.right = TreeNode(25)
 
 key = 17
-print(find(root,float('inf')))
+print(find(root,float('-inf')))
