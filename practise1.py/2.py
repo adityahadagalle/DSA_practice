@@ -2407,35 +2407,101 @@ from collections import deque
 
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# def find(root):
+#     while root:
+#             if p.val < root.val and q.val < root.val:
+#                 root = root.left
+#             elif p.val > root.val and q.val > root.val:
+#                 root = root.right
+#             else:
+#                 return root
+#     return None
+# root = TreeNode(10)
+
+# root.left = TreeNode(5)
+# root.right = TreeNode(15)
+
+# root.left.left = TreeNode(2)
+# root.left.right = TreeNode(7)
+
+# root.right.left = TreeNode(12)
+# root.right.right = TreeNode(20)
+
+# root.left.right.left = TreeNode(6)
+# root.left.right.right = TreeNode(8)
+
+# p = root.left.right.left     # 6
+# q = root.left.right.right    # 8
+
+# print(find(root))
+
+
+
+
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# def find(root):
+#     while root:
+#         if root.val==val:
+#             return root.val
+#         elif root.val<val:
+#             root=root.right
+#         else:
+#             root=root.left
+
+
+# root = TreeNode(8)
+
+# root.left = TreeNode(3)
+# root.right = TreeNode(10)
+
+# root.left.left = TreeNode(1)
+# root.left.right = TreeNode(6)
+
+# root.left.right.left = TreeNode(4)
+# root.left.right.right = TreeNode(7)
+
+# val = 6
+
+# print(find(root))
+
+
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-def find(root):
+def find(root,best):
     while root:
-            if p.val < root.val and q.val < root.val:
-                root = root.left
-            elif p.val > root.val and q.val > root.val:
-                root = root.right
-            else:
-                return root
-    return None
-root = TreeNode(10)
+        if root.val==key:
+            return root.val
+        elif root.val>key:
+            best=min(best,root.val)
+            root=root.left
+        else:
+            root=root.right
+    return best
+root = TreeNode(15)
 
-root.left = TreeNode(5)
-root.right = TreeNode(15)
+root.left = TreeNode(10)
+root.right = TreeNode(20)
 
-root.left.left = TreeNode(2)
-root.left.right = TreeNode(7)
+root.left.left = TreeNode(5)
+root.left.right = TreeNode(12)
 
-root.right.left = TreeNode(12)
-root.right.right = TreeNode(20)
+root.right.left = TreeNode(18)
+root.right.right = TreeNode(25)
 
-root.left.right.left = TreeNode(6)
-root.left.right.right = TreeNode(8)
-
-p = root.left.right.left     # 6
-q = root.left.right.right    # 8
-
-print(find(root))
+key = 17
+print(find(root,float('inf')))
