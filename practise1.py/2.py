@@ -2539,46 +2539,125 @@ from collections import deque
 
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# def find(root,val):
+#     org=root
+#     while root:
+#         if root.val >val:
+#             if root.left is None:
+#                 root.left = TreeNode(val)
+#                 break
+#             else:
+#                 root = root.left
+                
+#         elif root.val<val:
+#             if root.right is None:
+#                 root.right=TreeNode(val)
+#                 break
+#             else:
+#                 root = root.right
+  
+#     return root
+# root = TreeNode(8)
+
+# root.left = TreeNode(3)
+# root.right = TreeNode(10)
+
+# root.left.left = TreeNode(1)
+# root.left.right = TreeNode(6)
+
+# root.left.right.left = TreeNode(4)
+# root.left.right.right = TreeNode(7)
+
+# val = 5
+# result = find(root, val)
+
+# if result is not None:
+#     print("Inserted")
+# else:
+#     print("Not inserted")
+    
+
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# res=[]
+# def inorder(root):
+#     if root is None:
+#         return
+#     inorder(root.left)
+#     res.append(root.val)
+#     inorder(root.right)
+    
+    
+                
+
+  
+# root = TreeNode(5)
+
+# root.left = TreeNode(3)
+# root.right = TreeNode(7)
+
+# root.left.left = TreeNode(2)
+# root.left.right = TreeNode(4)
+
+# root.right.right = TreeNode(8)
+# k=3
+# inorder(root)
+
+# print(res[k-1])
+    
+    
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-def find(root,val):
-    org=root
-    while root:
-        if root.val >val:
-            if root.left is None:
-                root.left = TreeNode(val)
-                break
-            else:
-                root = root.left
+count=0
+        
+def inorder(root):
+    global count
+
+    if root is None:
+        return
+
+    inorder(root.left)
+
+    count += 1
+
+    if count == k:
+        print(root.val)
+        return
+
+    inorder(root.right)
+    
                 
-        elif root.val<val:
-            if root.right is None:
-                root.right=TreeNode(val)
-                break
-            else:
-                root = root.right
+
   
-    return root
-root = TreeNode(8)
+root = TreeNode(5)
 
 root.left = TreeNode(3)
-root.right = TreeNode(10)
+root.right = TreeNode(7)
 
-root.left.left = TreeNode(1)
-root.left.right = TreeNode(6)
+root.left.left = TreeNode(2)
+root.left.right = TreeNode(4)
 
-root.left.right.left = TreeNode(4)
-root.left.right.right = TreeNode(7)
+root.right.right = TreeNode(8)
+k=3
+inorder(ro
 
-val = 5
-result = find(root, val)
 
-if result is not None:
-    print("Inserted")
-else:
-    print("Not inserted")
+
     
     
+
+
