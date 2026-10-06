@@ -2617,47 +2617,74 @@ from collections import deque
     
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# count=0
+        
+# def inorder(root):
+#     global count
+
+#     if root is None:
+#         return
+
+#     inorder(root.left)
+
+#     count += 1
+
+#     if count == k:
+#         print(root.val)
+#         return
+
+#     inorder(root.right)
+    
+                
+
+  
+# root = TreeNode(5)
+
+# root.left = TreeNode(3)
+# root.right = TreeNode(7)
+
+# root.left.left = TreeNode(2)
+# root.left.right = TreeNode(4)
+
+# root.right.right = TreeNode(8)
+# k=3
+# inorder(root)
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-count=0
         
-def inorder(root):
-    global count
-
+def find(root,high,low):
     if root is None:
         return
-
-    inorder(root.left)
-
-    count += 1
-
-    if count == k:
-        print(root.val)
-        return
-
-    inorder(root.right)
-    
-                
-
-  
-root = TreeNode(5)
-
-root.left = TreeNode(3)
-root.right = TreeNode(7)
-
-root.left.left = TreeNode(2)
-root.left.right = TreeNode(4)
-
-root.right.right = TreeNode(8)
-k=3
-inorder(ro
-
-
-
+    if root.val >= high or root.val <= low:
+        return False
+    lef=find(root.left,root.val,low)
+    rig=find(root.right,high,root.val)
+    if lef==False or rig ==False:
+        return False
+    return True
     
     
+root = TreeNode(8)
 
+root.left = TreeNode(1)
+root.right = TreeNode(10)
 
+root.left.left = TreeNode(1)
+root.left.right = TreeNode(6)
+
+root.left.right.left = TreeNode(4)
+root.left.right.right = TreeNode(7)
+
+root.right.right = TreeNode(14)
+root.right.right.left = TreeNode(13)
+
+print(find(root,float('inf'),float('-inf')))
