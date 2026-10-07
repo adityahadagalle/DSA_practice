@@ -2691,6 +2691,42 @@ from collections import deque
 
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+        
+# def find(root):
+
+#     if root.val>p and root.val>q:
+#         return find(root.left)
+#     elif root.val<p and root.val<q:
+#         return find(root.right)
+        
+#     else:
+#         return root
+    
+# root = TreeNode(6)
+
+# root.left = TreeNode(2)
+# root.right = TreeNode(8)
+
+# root.left.left = TreeNode(0)
+# root.left.right = TreeNode(4)
+
+# root.left.right.left = TreeNode(3)
+# root.left.right.right = TreeNode(5)
+
+# root.right.left = TreeNode(7)
+# root.right.right = TreeNode(9)
+
+# p = 12
+# q = 17    # 5
+
+# print(find(root).val)
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -2698,30 +2734,34 @@ class TreeNode:
         self.right = right
         
 def find(root):
-
-    if root.val>p.val and root.val>q.val:
-        return find(root.left)
-    elif root.val<p.val and root.val<q.val:
-        return find(root.right)
-        
-    else:
-        return root
+    if root is None:
+        return
+    find(root.left)
+    if root.val==p.val:
+        if root.right:
+            
+            root=root.right
+            print(root.val)
+            return
+        else:
+            print("NONe")
+            return
+    find(root.right)
     
-root = TreeNode(6)
 
-root.left = TreeNode(2)
-root.right = TreeNode(8)
 
-root.left.left = TreeNode(0)
-root.left.right = TreeNode(4)
+    
+root = TreeNode(20)
 
-root.left.right.left = TreeNode(3)
-root.left.right.right = TreeNode(5)
+root.left = TreeNode(10)
+root.right = TreeNode(30)
 
-root.right.left = TreeNode(7)
-root.right.right = TreeNode(9)
+root.left.left = TreeNode(5)
+root.left.right = TreeNode(15)
 
-p = root.left.right.left      # 3
-q = root.left.right.right     # 5
+root.left.right.left = TreeNode(12)
+root.left.right.right = TreeNode(17)
 
-print(find(root).val)
+p = root.left.right.right 
+
+find(root)
