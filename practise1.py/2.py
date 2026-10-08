@@ -2727,6 +2727,46 @@ from collections import deque
 # print(find(root).val)
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+        
+# def find(root):
+#     if root is None:
+#         return
+#     find(root.left)
+#     if root.val==p.val:
+#         if root.right:
+            
+#             root=root.right
+#             print(root.val)
+#             return
+#         else:
+#             print("NONe")
+#             return
+#     find(root.right)
+    
+
+
+    
+# root = TreeNode(20)
+
+# root.left = TreeNode(10)
+# root.right = TreeNode(30)
+
+# root.left.left = TreeNode(5)
+# root.left.right = TreeNode(15)
+
+# root.left.right.left = TreeNode(12)
+# root.left.right.right = TreeNode(17)
+
+# p = root.left.right.right 
+
+# find(root)
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -2736,17 +2776,13 @@ class TreeNode:
 def find(root):
     if root is None:
         return
-    find(root.left)
-    if root.val==p.val:
-        if root.right:
-            
-            root=root.right
-            print(root.val)
-            return
-        else:
-            print("NONe")
-            return
-    find(root.right)
+    succ=None
+    if root.val<p.val:
+        find(root.right)
+        succ=root.val
+    else:
+        find(root.left)
+        
     
 
 
@@ -2764,4 +2800,42 @@ root.left.right.right = TreeNode(17)
 
 p = root.left.right.right 
 
-find(root)
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+succ = None
+
+def find(root):
+    global succ
+
+    while root:
+        if root.val>p.val:
+            succ=root
+            root=root.left
+        else:
+            root=root.right
+    return succ
+        
+
+
+    
+root = TreeNode(20)
+
+root.left = TreeNode(10)
+root.right = TreeNode(30)
+
+root.left.left = TreeNode(5)
+root.left.right = TreeNode(15)
+
+root.left.right.left = TreeNode(12)
+root.left.right.right = TreeNode(17)
+
+p = root.left.right
+result = find(root)
+
+if result:
+    print(result.val)
+else:
+    print(None)
