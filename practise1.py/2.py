@@ -2773,69 +2773,225 @@ class TreeNode:
         self.left = left
         self.right = right
         
-def find(root):
-    if root is None:
-        return
-    succ=None
-    if root.val<p.val:
-        find(root.right)
-        succ=root.val
-    else:
-        find(root.left)
+# def find(root):
+#     if root is None:
+#         return
+#     succ=None
+#     if root.val<p.val:
+#         find(root.right)
+#         succ=root.val
+#     else:
+#         find(root.left)
         
     
 
 
     
-root = TreeNode(20)
+# root = TreeNode(20)
 
-root.left = TreeNode(10)
-root.right = TreeNode(30)
+# root.left = TreeNode(10)
+# root.right = TreeNode(30)
 
-root.left.left = TreeNode(5)
-root.left.right = TreeNode(15)
+# root.left.left = TreeNode(5)
+# root.left.right = TreeNode(15)
 
-root.left.right.left = TreeNode(12)
-root.left.right.right = TreeNode(17)
+# root.left.right.left = TreeNode(12)
+# root.left.right.right = TreeNode(17)
 
-p = root.left.right.right 
+# p = root.left.right.right 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# succ = None
+
+# def find(root):
+#     global succ
+
+#     while root:
+#         if root.val>p.val:
+#             succ=root
+#             root=root.left
+#         else:
+#             root=root.right
+#     return succ
+        
+
+
+    
+# root = TreeNode(20)
+
+# root.left = TreeNode(10)
+# root.right = TreeNode(30)
+
+# root.left.left = TreeNode(5)
+# root.left.right = TreeNode(15)
+
+# root.left.right.left = TreeNode(12)
+# root.left.right.right = TreeNode(17)
+
+# p = root.left.right
+# result = find(root)
+
+# if result:
+#     print(result.val)
+# else:
+#     print(None)
+
+
+# class BSTIterator:
+
+#     def __init__(self, root):
+#         self.root = root
+#     def inorder(self,root):
+#         if root is None:
+#             return
+#         self.inorder(root.left)
+#         self.inorder(root.right)
+        
+#     def next(self):
+#         if self.root is None:
+#             return
+#         if BSTIterator.next():
+#             inorder
+        
+        
+        
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# succ = []
+
+# def find(root):
+#     if root is None:
+#         return
+#     find(root.left)
+#     succ.append(root.val)
+#     find(root.right)
+#     return None
+# root = TreeNode(10)
+
+# root.left = TreeNode(5)
+# root.right = TreeNode(15)
+
+# root.left.left = TreeNode(3)
+# root.left.right = TreeNode(7)
+
+# root.right.left = TreeNode(12)
+# root.right.right = TreeNode(20)
+
+# k = 25
+# find(root)
+# i=0
+# j=len(succ)-1
+# while i<j:
+#     if succ[i]+succ[j]==k:
+#         print("True")
+#         break
+#     elif succ[i]+succ[j]<k:
+#         i+=1
+#     else:
+#         j-=1
+        
+        
+        
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-succ = None
+
+succ = []
+prev = None
+count = 0
+first = None
+mid = None
+last = None
 
 def find(root):
-    global succ
+    global prev, first, mid, last, count
 
-    while root:
-        if root.val>p.val:
-            succ=root
-            root=root.left
-        else:
-            root=root.right
-    return succ
-        
+    if root is None:
+        return
+
+    find(root.left)
+
+    if prev is not None and prev.val > root.val:
+        if count == 0:
+            first = prev
+            mid = root
+            count += 1
+        if count == 1:
+            last = root
+
+    prev = root
+
+    find(root.right)
+
+root = TreeNode(3)
+root.left = TreeNode(1)
+root.right = TreeNode(4)
+root.right.left = TreeNode(2)
+
+find(root)
+
+if first and last:
+    first.val, last.val = last.val, first.val
+elif first and mid:
+    first.val, mid.val = mid.val, first.val          
 
 
     
-root = TreeNode(20)
+        
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-root.left = TreeNode(10)
-root.right = TreeNode(30)
+succ = []
+prev = None
+count = 0
+first = None
+mid = None
+last = None
 
-root.left.left = TreeNode(5)
-root.left.right = TreeNode(15)
+def find(root):
+    global prev, first, mid, last
 
-root.left.right.left = TreeNode(12)
-root.left.right.right = TreeNode(17)
+    if root is None:
+        return
 
-p = root.left.right
-result = find(root)
+    find(root.left)
 
-if result:
-    print(result.val)
-else:
-    print(None)
+    if prev is not None and prev.val > root.val:
+        if count==0:
+            first=prev
+            mid=root
+            count+=1
+        if count==1:
+            last=root
+
+    prev = root
+
+    find(root.right)
+
+
+root = TreeNode(3)
+root.left = TreeNode(1)
+root.right = TreeNode(4)
+root.right.left = TreeNode(2)
+
+find(root)
+
+if first and last:
+    first.val, last.val = last.val, first.val
+elif first and mid:
+    first.val, mid.val = mid.val, first.val          
+
+
+                
