@@ -1,5 +1,4 @@
-
-    if root.val<=p.val:
-        find(root.right)
-        succ=root.val
-    else:
+root = TreeNode(3)
+root.left = TreeNode(1)
+root.right = TreeNode(4)
+root.right.left = TreeNode(2)

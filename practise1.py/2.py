@@ -2899,99 +2899,154 @@ class TreeNode:
         
         
         
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-succ = []
-prev = None
-count = 0
-first = None
-mid = None
-last = None
+# succ = []
+# prev = None
+# count = 0
+# first = None
+# mid = None
+# last = None
 
-def find(root):
-    global prev, first, mid, last, count
+# def find(root):
+#     global prev, first, mid, last, count
 
-    if root is None:
-        return
+#     if root is None:
+#         return
 
-    find(root.left)
+#     find(root.left)
 
-    if prev is not None and prev.val > root.val:
-        if count == 0:
-            first = prev
-            mid = root
-            count += 1
-        if count == 1:
-            last = root
+#     if prev is not None and prev.val > root.val:
+#         if count == 0:
+#             first = prev
+#             mid = root
+#             count += 1
+#         if count == 1:
+#             last = root
 
-    prev = root
+#     prev = root
 
-    find(root.right)
+#     find(root.right)
 
-root = TreeNode(3)
-root.left = TreeNode(1)
-root.right = TreeNode(4)
-root.right.left = TreeNode(2)
+# root = TreeNode(3)
+# root.left = TreeNode(1)
+# root.right = TreeNode(4)
+# root.right.left = TreeNode(2)
 
-find(root)
+# find(root)
 
-if first and last:
-    first.val, last.val = last.val, first.val
-elif first and mid:
-    first.val, mid.val = mid.val, first.val          
+# if first and last:
+#     first.val, last.val = last.val, first.val
+# elif first and mid:
+#     first.val, mid.val = mid.val, first.val          
 
 
     
         
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# succ = []
+# prev = None
+# count = 0
+# first = None
+# mid = None
+# last = None
+
+# def find(root):
+#     global prev, first, mid, last
+
+#     if root is None:
+#         return
+
+#     find(root.left)
+
+#     if prev is not None and prev.val > root.val:
+#         if count==0:
+#             first=prev
+#             mid=root
+#             count+=1
+#         if count==1:
+#             last=root
+
+#     prev = root
+
+#     find(root.right)
+
+
+# root = TreeNode(3)
+# root.left = TreeNode(1)
+# root.right = TreeNode(4)
+# root.right.left = TreeNode(2)
+
+# find(root)
+
+# if first and last:
+#     first.val, last.val = last.val, first.val
+# elif first and mid:
+#     first.val, mid.val = mid.val, first.val          
+
+
+                
+                
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-succ = []
-prev = None
-count = 0
-first = None
-mid = None
-last = None
 
+count=0
 def find(root):
-    global prev, first, mid, last
+    global count
 
     if root is None:
+   
+        
         return
 
-    find(root.left)
-
-    if prev is not None and prev.val > root.val:
-        if count==0:
-            first=prev
-            mid=root
-            count+=1
-        if count==1:
-            last=root
-
-    prev = root
-
     find(root.right)
-
-
-root = TreeNode(3)
+    if root:
+        count+=root.val
+        root.val = count       
+    find(root.left)
+    if root:
+        count+=root.val
+        root.val = count    
+root = TreeNode(2)
 root.left = TreeNode(1)
-root.right = TreeNode(4)
-root.right.left = TreeNode(2)
+root.right = TreeNode(3)
 
 find(root)
 
-if first and last:
-    first.val, last.val = last.val, first.val
-elif first and mid:
-    first.val, mid.val = mid.val, first.val          
+#         5
+#        / \
+#       3   7
+#      / \ / \
+#     2  4 6  8
+    
+    
+#         26
+#        /  \
+#      33    15
+#      / \   / \
+#    35  30 21  8     
+def show_tree(root, space=0, indent=4):
+    if root is None:
+        return
 
+    show_tree(root.right, space + indent, indent)
 
-                
+    if space:
+        print(" " * space, end="")
+    print(root.val)
+
+    show_tree(root.left, space + indent, indent) 
+show_tree(root)    
