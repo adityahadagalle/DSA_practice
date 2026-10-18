@@ -2996,35 +2996,35 @@ class TreeNode:
 
                 
                 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
 
-count=0
-def find(root):
-    global count
+# count=0
+# def find(root):
+#     global count
 
-    if root is None:
+#     if root is None:
    
         
-        return
+#         return
 
-    find(root.right)
-    if root:
-        count+=root.val
-        root.val = count       
-    find(root.left)
-    if root:
-        count+=root.val
-        root.val = count    
-root = TreeNode(2)
-root.left = TreeNode(1)
-root.right = TreeNode(3)
+#     find(root.right)
+#     if root:
+#         count+=root.val
+#         root.val = count       
+#     find(root.left)
+#     if root:
+#         count+=root.val
+#         root.val = count    
+# root = TreeNode(2)
+# root.left = TreeNode(1)
+# root.right = TreeNode(3)
 
-find(root)
+# find(root)
 
 #         5
 #        / \
@@ -3038,15 +3038,49 @@ find(root)
 #      33    15
 #      / \   / \
 #    35  30 21  8     
-def show_tree(root, space=0, indent=4):
+# def show_tree(root, space=0, indent=4):
+#     if root is None:
+#         return
+
+#     show_tree(root.right, space + indent, indent)
+
+#     if space:
+#         print(" " * space, end="")
+#     print(root.val)
+
+#     show_tree(root.left, space + indent, indent) 
+# show_tree(root)    
+
+
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+lis1=[]
+lis2=[]
+def find(root,arr):
+    
     if root is None:
         return
+    find(root.left,arr)
+    arr.append(root.val)
+    find(root.right,arr)
 
-    show_tree(root.right, space + indent, indent)
 
-    if space:
-        print(" " * space, end="")
-    print(root.val)
 
-    show_tree(root.left, space + indent, indent) 
-show_tree(root)    
+
+
+       
+root1 = TreeNode(2)
+root1.left = TreeNode(1)
+
+root2 = TreeNode(3)
+root2.left = TreeNode(0)
+root2.right = TreeNode(4)
+find(root1,lis1)
+
