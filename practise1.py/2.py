@@ -3054,6 +3054,52 @@ class TreeNode:
 
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+
+# lis1=[]
+# lis2=[]
+# def find(root,arr):
+    
+#     if root is None:
+#         return
+#     find(root.left,arr)
+#     arr.append(root.val)
+#     find(root.right,arr)
+
+
+
+
+
+       
+# root1 = TreeNode(2)
+# root1.left = TreeNode(1)
+
+# root2 = TreeNode(3)
+# root2.left = TreeNode(0)
+# root2.right = TreeNode(4)
+# find(root1,lis1)
+
+# find(root2,lis2)
+# i=0
+# j=0
+# res=[]
+# while i<len(lis1) and j<len(lis2):
+#     if lis1[i]<lis2[j]:
+#         res.append(lis1[i])
+#         i+=1
+#     else:
+#         res.append(lis2[j])
+#         j+=1
+# res.extend(lis1[i:])
+# res.extend(lis2[j:])
+        
+# print(res)
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -3061,26 +3107,51 @@ class TreeNode:
         self.right = right
 
 
-lis1=[]
-lis2=[]
-def find(root,arr):
-    
+arr = []
+
+def find(root):
     if root is None:
         return
-    find(root.left,arr)
+
+    find(root.left)
     arr.append(root.val)
-    find(root.right,arr)
+    find(root.right)
 
 
+root = TreeNode(10)
+root.left = TreeNode(5)
+root.right = TreeNode(15)
+root.left.left = TreeNode(3)
+root.left.left.left = TreeNode(1)
+root.right.right = TreeNode(20)
+
+find(root)
+print(arr)
 
 
+def fun(l, r, arr):
+    if l > r:
+        return None
 
-       
-root1 = TreeNode(2)
-root1.left = TreeNode(1)
+    mid = (l + r) // 2
+    root = TreeNode(arr[mid])
 
-root2 = TreeNode(3)
-root2.left = TreeNode(0)
-root2.right = TreeNode(4)
-find(root1,lis1)
+    root.left = fun(l, mid - 1, arr)
+    root.right = fun(mid + 1, r, arr)
 
+    return root
+
+
+root = fun(0, len(arr) - 1, arr)
+
+
+def show_tree(root, level=0):
+    if root is None:
+        return
+
+    show_tree(root.right, level + 1)
+    print("    " * level + str(root.val))
+    show_tree(root.left, level + 1)
+
+
+show_tree(root)
