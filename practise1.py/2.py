@@ -3100,6 +3100,64 @@ class TreeNode:
         
 # print(res)
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+
+# arr = []
+
+# def find(root):
+#     if root is None:
+#         return
+
+#     find(root.left)
+#     arr.append(root.val)
+#     find(root.right)
+
+
+# root = TreeNode(10)
+# root.left = TreeNode(5)
+# root.right = TreeNode(15)
+# root.left.left = TreeNode(3)
+# root.left.left.left = TreeNode(1)
+# root.right.right = TreeNode(20)
+
+# find(root)
+# print(arr)
+
+
+# def fun(l, r, arr):
+#     if l > r:
+#         return None
+
+#     mid = (l + r) // 2
+#     root = TreeNode(arr[mid])
+
+#     root.left = fun(l, mid - 1, arr)
+#     root.right = fun(mid + 1, r, arr)
+
+#     return root
+
+
+# root = fun(0, len(arr) - 1, arr)
+
+
+# def show_tree(root, level=0):
+#     if root is None:
+#         return
+
+#     show_tree(root.right, level + 1)
+#     print("    " * level + str(root.val))
+#     show_tree(root.left, level + 1)
+
+
+# show_tree(root)
+
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -3126,32 +3184,14 @@ root.left.left.left = TreeNode(1)
 root.right.right = TreeNode(20)
 
 find(root)
-print(arr)
+nums = [-10, -3, 0, 5, 9]
 
-
-def fun(l, r, arr):
-    if l > r:
+def fun(l,r,nums):
+    if l>r: 
         return None
-
-    mid = (l + r) // 2
-    root = TreeNode(arr[mid])
-
-    root.left = fun(l, mid - 1, arr)
-    root.right = fun(mid + 1, r, arr)
-
+    mid=(r+l)//2
+    root=TreeNode(nums[mid])
+    root.left=fun(l,mid-1,nums)
+    root.right=fun(mid+1,r,nums)
     return root
-
-
-root = fun(0, len(arr) - 1, arr)
-
-
-def show_tree(root, level=0):
-    if root is None:
-        return
-
-    show_tree(root.right, level + 1)
-    print("    " * level + str(root.val))
-    show_tree(root.left, level + 1)
-
-
-show_tree(root)
+root = fun(0, len(nums) - 1, nums)
