@@ -3201,54 +3201,134 @@ class TreeNode:
 
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+
+# arr = []
+
+# def find(root):
+#     if root is None:
+#         return
+
+#     find(root.left)
+#     arr.append(root.val)
+#     find(root.right)
+
+
+# root = TreeNode(5)
+# root.left = TreeNode(3)
+# root.right = TreeNode(6)
+
+# root.left.left = TreeNode(2)
+# root.left.right = TreeNode(4)
+# root.left.left.left = TreeNode(1)
+
+# root.right.right = TreeNode(8)
+# root.right.right.left = TreeNode(7)
+# root.right.right.right = TreeNode(9)
+
+# find(root)
+
+# new_root = TreeNode(arr[0])
+# curr = new_root
+
+# for i in range(1, len(arr)):
+#     curr.right = TreeNode(arr[i])
+#     curr = curr.right
+
+
+# def display(root):
+#     if root is None:
+#         return
+
+#     print(root.val, end="")
+#     if root.right:
+#         print(" -> ", end="")
+#     display(root.right)
+
+
+# display(new_root)
+
+
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+
+
+
+# def find(root):
+#     while root:
+#         if root.val==val:
+#             return root
+#         if root.val>val:
+#             root=root.left
+#         else:
+#             root=root.right
+        
+#     return root
+
+
+# root = TreeNode(4)
+# root.left = TreeNode(2)
+# root.right = TreeNode(7)
+# root.left.left = TreeNode(1)
+# root.left.right = TreeNode(3)
+
+# val= 2
+
+# result = find(root)
+# print(result.val if result else None)
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-
-arr = []
-
 def find(root):
     if root is None:
-        return
+        return TreeNode(val)
 
-    find(root.left)
-    arr.append(root.val)
-    find(root.right)
+    org = root
+    prev = None
 
+    while root:
+        prev = root
 
-root = TreeNode(5)
-root.left = TreeNode(3)
-root.right = TreeNode(6)
+        if root.val > val:
+            root = root.left
+        else:
+            root = root.right
 
-root.left.left = TreeNode(2)
-root.left.right = TreeNode(4)
-root.left.left.left = TreeNode(1)
+    if prev.val > val:
+        prev.left = TreeNode(val)
+    else:
+        prev.right = TreeNode(val)
 
-root.right.right = TreeNode(8)
-root.right.right.left = TreeNode(7)
-root.right.right.right = TreeNode(9)
+    return org
 
-find(root)
+root = TreeNode(4)
+root.left = TreeNode(2)
+root.right = TreeNode(7)
+root.left.left = TreeNode(1)
+root.left.right = TreeNode(3)
 
-new_root = TreeNode(arr[0])
-curr = new_root
-
-for i in range(1, len(arr)):
-    curr.right = TreeNode(arr[i])
-    curr = curr.right
-
-
-def display(root):
+val = 5
+def display(root, level=0):
     if root is None:
         return
 
-    print(root.val, end="")
-    if root.right:
-        print(" -> ", end="")
-    display(root.right)
+    display(root.right, level + 1)
+    print("    " * level + str(root.val))
+    display(root.left, level + 1)
 
-
-display(new_root)
+display(root)
