@@ -3288,47 +3288,76 @@ class TreeNode:
 # print(result.val if result else None)
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+# def find(root):
+#     if root is None:
+#         return TreeNode(val)
+
+#     org = root
+#     prev = None
+
+#     while root:
+#         prev = root
+
+#         if root.val > val:
+#             root = root.left
+#         else:
+#             root = root.right
+
+#     if prev.val > val:
+#         prev.left = TreeNode(val)
+#     else:
+#         prev.right = TreeNode(val)
+
+#     return org
+
+# root = TreeNode(4)
+# root.left = TreeNode(2)
+# root.right = TreeNode(7)
+# root.left.left = TreeNode(1)
+# root.left.right = TreeNode(3)
+
+# val = 5
+# def display(root, level=0):
+#     if root is None:
+#         return
+
+#     display(root.right, level + 1)
+#     print("    " * level + str(root.val))
+#     display(root.left, level + 1)
+
+# display(root)
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-
-def find(root):
+        prev=None
+def find(root,low,high):
     if root is None:
-        return TreeNode(val)
-
-    org = root
-    prev = None
-
-    while root:
-        prev = root
-
-        if root.val > val:
-            root = root.left
-        else:
-            root = root.right
-
-    if prev.val > val:
-        prev.left = TreeNode(val)
+        return 
+    if root.val<low or root.val>high:
+        return False
+    lef=find(root.left,low,root.val)
+    rig=find(root.right,root.val,high)
+    if lef ==False or rig==False:
+        return False
     else:
-        prev.right = TreeNode(val)
+        return True
+        
 
-    return org
-
-root = TreeNode(4)
-root.left = TreeNode(2)
+root = TreeNode(5)
+root.left = TreeNode(1)
 root.right = TreeNode(7)
-root.left.left = TreeNode(1)
-root.left.right = TreeNode(3)
+root.right.left = TreeNode(4)
+root.right.right = TreeNode(8)
 
-val = 5
-def display(root, level=0):
-    if root is None:
-        return
-
-    display(root.right, level + 1)
-    print("    " * level + str(root.val))
-    display(root.left, level + 1)
-
-display(root)
+result = find(root, float('-inf'), float('inf'))
+print(result)
