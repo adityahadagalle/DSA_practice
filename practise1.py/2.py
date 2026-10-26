@@ -3334,30 +3334,94 @@ class TreeNode:
 # display(root)
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+#         prev=None
+# def find(root,low,high):
+#     if root is None:
+#         return 
+#     if root.val<low or root.val>high:
+#         return False
+#     lef=find(root.left,low,root.val)
+#     rig=find(root.right,root.val,high)
+#     if lef ==False or rig==False:
+#         return False
+#     else:
+#         return True
+        
+
+# root = TreeNode(5)
+# root.left = TreeNode(1)
+# root.right = TreeNode(7)
+# root.right.left = TreeNode(4)
+# root.right.right = TreeNode(8)
+
+# result = find(root, float('-inf'), float('inf'))
+# print(result)
+
+
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# def find(root):
+#     global count
+#     if root is None:
+#         return 
+#     find(root.left)
+#     count+=1
+#     if count==k:
+#         print(root.val)
+#         return
+#     find(root.right)
+
+
+# root = TreeNode(3)
+# root.left = TreeNode(1)
+# root.right = TreeNode(4)
+# root.left.right = TreeNode(2)
+
+# k = 1
+# count = 0
+# find(root)
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-        prev=None
-def find(root,low,high):
-    if root is None:
-        return 
-    if root.val<low or root.val>high:
-        return False
-    lef=find(root.left,low,root.val)
-    rig=find(root.right,root.val,high)
-    if lef ==False or rig==False:
-        return False
-    else:
-        return True
+def find(root):
+    curr = root
+    stack = []
+
+    while curr or stack:
+        while curr:
+
+            stack.append(curr)
+            curr=curr.left
+        a=stack.pop()
+        print(a.val)
+        curr=a.right  
         
 
-root = TreeNode(5)
-root.left = TreeNode(1)
-root.right = TreeNode(7)
-root.right.left = TreeNode(4)
-root.right.right = TreeNode(8)
+                
 
-result = find(root, float('-inf'), float('inf'))
-print(result)
+
+root = TreeNode(5)
+root.left = TreeNode(3)
+root.right = TreeNode(6)
+
+root.left.left = TreeNode(2)
+root.left.right = TreeNode(4)
+
+root.right.right = TreeNode(7)
+
+k = 9
+
+find(root)
