@@ -3391,37 +3391,145 @@ class TreeNode:
 # find(root)
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# def find(root):
+#     curr = root
+#     stack = []
+
+#     while curr or stack:
+#         while curr:
+
+#             stack.append(curr)
+#             curr=curr.left
+#         a=stack.pop()
+#         print(a.val)
+#         curr=a.right  
+
+
+# root = TreeNode(5)
+# root.left = TreeNode(3)
+# root.right = TreeNode(6)
+
+# root.left.left = TreeNode(2)
+# root.left.right = TreeNode(4)
+
+# root.right.right = TreeNode(7)
+
+# k = 9
+
+# find(root)
+
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# def find(root):
+#     curr = root
+#     curr1 = root
+#     stack = []
+#     stack1 = []
+
+#     # Initialise both iterators
+#     while curr:
+#         stack.append(curr)
+#         curr = curr.left
+
+#     while curr1:
+#         stack1.append(curr1)
+#         curr1 = curr1.right
+
+#     a = stack.pop()
+#     b = stack1.pop()
+
+#     while a.val < b.val:
+#         total = a.val + b.val
+
+#         if total == k:
+#             print("True")
+#             return
+
+#         elif total < k:
+#             curr = a.right
+
+#             while curr:
+#                 stack.append(curr)
+#                 curr = curr.left
+
+#             if not stack:
+#                 break
+
+#             a = stack.pop()
+
+#         else:
+#             curr1 = b.left
+
+#             while curr1:
+#                 stack1.append(curr1)
+#                 curr1 = curr1.right
+
+#             if not stack1:
+#                 break
+
+#             b = stack1.pop()
+
+#     print("False")
+
+    
+
+
+# root = TreeNode(5)
+# root.left = TreeNode(2)
+# root.right = TreeNode(6)
+
+# root.left.left = TreeNode(2)
+# root.left.right = TreeNode(4)
+
+# root.right.right = TreeNode(8)
+
+# k = 9
+
+# find(root)
+
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 def find(root):
-    curr = root
-    stack = []
-
-    while curr or stack:
-        while curr:
-
-            stack.append(curr)
-            curr=curr.left
+    root1=root
+    stack=[]
+    minn=float('inf')
+    prev=None
+    while stack or root1:
+        while root1:
+            stack.append(root1)
+            root1=root1.left
         a=stack.pop()
-        print(a.val)
-        curr=a.right  
+        if prev is not None:
+            minn=min(minn,a.val-prev.val)
+        prev=a
+        root1=a.right
+            
+    return minn    
         
 
-                
+    
 
-
-root = TreeNode(5)
+root = TreeNode(7)
 root.left = TreeNode(3)
-root.right = TreeNode(6)
+root.right = TreeNode(12)
 
-root.left.left = TreeNode(2)
-root.left.right = TreeNode(4)
+root.left.left = TreeNode(1)
+root.left.right = TreeNode(5)
 
-root.right.right = TreeNode(7)
+root.right.left = TreeNode(9)
+root.right.right = TreeNode(15)
 
-k = 9
-
-find(root)
+print(find(root))
