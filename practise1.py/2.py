@@ -3497,39 +3497,74 @@ class TreeNode:
 
 
 
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# def find(root):
+#     root1=root
+#     stack=[]
+#     minn=float('inf')
+#     prev=None
+#     while stack or root1:
+#         while root1:
+#             stack.append(root1)
+#             root1=root1.left
+#         a=stack.pop()
+#         if prev is not None:
+#             minn=min(minn,a.val-prev.val)
+#         prev=a
+#         root1=a.right
+            
+#     return minn    
+        
+
+    
+
+# root = TreeNode(7)
+# root.left = TreeNode(3)
+# root.right = TreeNode(12)
+
+# root.left.left = TreeNode(1)
+# root.left.right = TreeNode(5)
+
+# root.right.left = TreeNode(9)
+# root.right.right = TreeNode(15)
+
+# print(find(root))
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+prev=None
+first=0
+found=False
 def find(root):
-    root1=root
-    stack=[]
-    minn=float('inf')
-    prev=None
-    while stack or root1:
-        while root1:
-            stack.append(root1)
-            root1=root1.left
-        a=stack.pop()
-        if prev is not None:
-            minn=min(minn,a.val-prev.val)
-        prev=a
-        root1=a.right
+    
+    if root is None:
+        return
+    find(root.left)
+    if prev is not None:
+        if found is False:
+            if prev.val>root.val:
+                first=prev.val
+                found=True
+        if found is True:
+            if prev.val>root.val:
+                second=prev.val
+                            
             
-    return minn    
+        
         
 
-    
+root = TreeNode(3)
+root.left = TreeNode(1)
+root.right = TreeNode(4)
 
-root = TreeNode(7)
-root.left = TreeNode(3)
-root.right = TreeNode(12)
-
-root.left.left = TreeNode(1)
-root.left.right = TreeNode(5)
-
-root.right.left = TreeNode(9)
-root.right.right = TreeNode(15)
+root.right.left = TreeNode(2)
 
 print(find(root))
