@@ -3535,36 +3535,68 @@ class TreeNode:
 # print(find(root))
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-prev=None
-first=0
-found=False
-def find(root):
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# prev=None
+# first=0
+# found=False
+# def find(root):
     
-    if root is None:
-        return
-    find(root.left)
-    if prev is not None:
-        if found is False:
-            if prev.val>root.val:
-                first=prev.val
-                found=True
-        if found is True:
-            if prev.val>root.val:
-                second=prev.val
+#     if root is None:
+#         return
+#     find(root.left)
+#     if prev is not None:
+#         if found is False:
+#             if prev.val>root.val:
+#                 first=prev.val
+#                 found=True
+#         if found is True:
+#             if prev.val>root.val:
+#                 second=prev.val
                             
             
-        
-        
+# root = TreeNode(3)
+# root.left = TreeNode(1)
+# root.right = TreeNode(4)
 
-root = TreeNode(3)
-root.left = TreeNode(1)
-root.right = TreeNode(4)
+# root.right.left = TreeNode(2)
 
-root.right.left = TreeNode(2)
+# print(find(root))
 
-print(find(root))
+
+
+# nums=[1,1,1,1,1,1,2,2,2,2,3,3,3,4]
+# i=0
+# count=1
+# for j in range(1,len(nums)):
+#     if count<2:
+#         nums[i]=nums[j]
+            
+            
+    
+# print(nums)
+    
+    
+# nums=[0,1,2,2,3,0,4,2] 
+# val = 2
+
+# i=0 
+# for j in range(len(nums)):
+#     if nums[j]!=val:
+#         nums[i]=nums[j]
+#         i+=1
+# print(i)           
+
+nums = [0,1,0,3,12]
+i=0
+for j in range(len(nums)):
+    if nums[j]!=0:
+        nums[i],nums[j]=nums[j],nums[i]
+        i+=1
+    # elif nums[j]!=0:
+    #     nums[i],nums[j]=nums[j],nums[i]
+     
+print(nums)
