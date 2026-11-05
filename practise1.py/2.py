@@ -3590,13 +3590,66 @@ class TreeNode:
 #         i+=1
 # print(i)           
 
-nums = [0,1,0,3,12]
-i=0
-for j in range(len(nums)):
-    if nums[j]!=0:
-        nums[i],nums[j]=nums[j],nums[i]
-        i+=1
+# nums = [0,1,0,3,12]
+# i=0
+# for j in range(len(nums)):
+#     if nums[j]!=0:
+#         nums[i],nums[j]=nums[j],nums[i]
+#         i+=1
     # elif nums[j]!=0:
     #     nums[i],nums[j]=nums[j],nums[i]
      
-print(nums)
+# print(nums)
+
+
+# nums = [3,1,3,4,3]
+# k = 6
+# nums.sort()
+# l=0
+# count=0
+# r=len(nums)-1
+# while l<r:
+#     if nums[l]+nums[r]==k:
+#         count+=1
+#         l+=1
+#         r-=1
+#     elif nums[l]+nums[r]>k:
+#         r-=1
+#     else:
+#         l+=1
+# print(count)
+
+# nums=[1,8,6,2,5,4,8,3,7]
+# l=0
+# best=0
+# r=len(nums)-1
+# while l<r:
+#     width=r-l
+#     height=min(nums[l],nums[r])
+#     mul=width*height
+#     best=max(best,mul)
+#     if nums[l]<nums[r]:
+#         l+=1
+#     else:
+#         r-=1
+# print(best)
+    
+    
+nums = [3,2,2,1]
+limit = 3
+l=0
+count=0
+r=len(nums)-1
+while l<=r:
+    if nums[l]+nums[r]<=limit:
+         count+=1
+         l+=1
+         r-=1      
+    elif nums[l]>=nums[r]:
+        count+=1
+        l+=1
+    else:
+        count+=1
+        r-=1
+print(count) 
+     
