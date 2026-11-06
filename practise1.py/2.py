@@ -3635,21 +3635,48 @@ class TreeNode:
 # print(best)
     
     
-nums = [3,2,2,1]
-limit = 3
-l=0
-count=0
-r=len(nums)-1
-while l<=r:
-    if nums[l]+nums[r]<=limit:
-         count+=1
-         l+=1
-         r-=1      
-    elif nums[l]>=nums[r]:
-        count+=1
-        l+=1
-    else:
-        count+=1
-        r-=1
-print(count) 
+# nums = [3,2,2,1]
+# limit = 3
+# l=0
+# count=0
+# r=len(nums)-1
+# while l<=r:
+#     if nums[l]+nums[r]<=limit:
+#          count+=1
+#          l+=1
+#          r-=1      
+#     elif nums[l]>=nums[r]:
+#         count+=1
+#         l+=1
+#     else:
+#         count+=1
+#         r-=1
+# print(count) 
      
+# nums = [1,2,3]
+# k = 2
+# count=0
+# pre=0
+# freq={0:1}
+# for i in range(len(nums)):
+#     pre+=nums[i]
+#     check=pre-k
+#     if check in freq:
+#         count+=freq[check]
+#     freq[pre]=freq.get(pre,0)+1
+# print(count)
+    
+         
+nums = [2, 4, 6, 8]
+k = 4
+count=0
+pre=0
+freq={0:1}
+for i in range(len(nums)):
+    pre+=nums[i]
+    check=pre%k
+    if check in freq:
+        count+=freq[check]
+      
+    freq[check]=freq.get(check,0)+1
+print(count)     
