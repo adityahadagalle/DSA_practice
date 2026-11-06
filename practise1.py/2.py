@@ -3653,30 +3653,43 @@ class TreeNode:
 #         r-=1
 # print(count) 
      
-# nums = [1,2,3]
-# k = 2
-# count=0
-# pre=0
-# freq={0:1}
-# for i in range(len(nums)):
-#     pre+=nums[i]
-#     check=pre-k
-#     if check in freq:
-#         count+=freq[check]
-#     freq[pre]=freq.get(pre,0)+1
-# print(count)
-    
-         
-nums = [2, 4, 6, 8]
-k = 4
+nums = [1,0,1,0,1]
+k = 2
 count=0
 pre=0
 freq={0:1}
 for i in range(len(nums)):
     pre+=nums[i]
-    check=pre%k
+    check=pre-k
     if check in freq:
         count+=freq[check]
+    freq[pre]=freq.get(pre,0)+1
+    
+print(count)         
+# nums = [2, 4, 6, 8]
+# k = 4
+# count=0
+# pre=0
+# freq={0:1}
+# for i in range(len(nums)):
+#     pre+=nums[i]
+#     check=pre%k
+#     if check in freq:
+#         count+=freq[check]
       
-    freq[check]=freq.get(check,0)+1
-print(count)     
+#     freq[check]=freq.get(check,0)+1
+# print(count)     
+
+# nums = [0,1,1,1,1,1,0,0,0]
+# best=0
+# pre=0
+# freq={0:-1}
+# for i in range(len(nums)):
+#     if nums[i]==0:
+#         nums[i]=-1
+#     pre+=nums[i]
+#     if pre in freq:
+#         best=max(best,i-freq[pre])
+#     else:
+#         freq[pre]=i
+# print(freq)
