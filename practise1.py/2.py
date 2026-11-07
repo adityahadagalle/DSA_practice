@@ -3653,19 +3653,19 @@ class TreeNode:
 #         r-=1
 # print(count) 
      
-nums = [1,0,1,0,1]
-k = 2
-count=0
-pre=0
-freq={0:1}
-for i in range(len(nums)):
-    pre+=nums[i]
-    check=pre-k
-    if check in freq:
-        count+=freq[check]
-    freq[pre]=freq.get(pre,0)+1
+# nums = [1,0,1,0,1]
+# k = 2
+# count=0
+# pre=0
+# freq={0:1}
+# for i in range (len(nums)):
+#     pre+=nums[i]
+#     check=pre-k
+#     if check in freq:
+#         count+=freq[check]
+#     freq[pre]=freq.get(pre,0)+1
     
-print(count)         
+# print(count)         
 # nums = [2, 4, 6, 8]
 # k = 4
 # count=0
@@ -3693,3 +3693,29 @@ print(count)
 #     else:
 #         freq[pre]=i
 # print(freq)
+
+
+
+import heapq
+
+heap = []
+
+# heapq.heappush(heap, 5)
+# heapq.heappush(heap, 2)
+# heapq.heappush(heap, 8)
+# heapq.heappush(heap, 1)
+
+# print(heap)
+nums = [3,2,1,5,6,4]
+k = 2
+for i in range(k):
+    heapq.heappush(heap, nums[i])
+for i in range(k,len(nums)):
+    if nums[i]<=(heap[0]):
+        continue
+    heapq.heappop(heap)
+    heapq.heappush(heap,nums[i])
+print(heap[0])
+
+    
+    
