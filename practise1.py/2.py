@@ -3706,16 +3706,161 @@ heap = []
 # heapq.heappush(heap, 1)
 
 # print(heap)
-nums = [3,2,1,5,6,4]
-k = 2
-for i in range(k):
-    heapq.heappush(heap, nums[i])
-for i in range(k,len(nums)):
-    if nums[i]<=(heap[0]):
-        continue
-    heapq.heappop(heap)
-    heapq.heappush(heap,nums[i])
-print(heap[0])
+# nums = [3,2,1,5,6,4] 
+# k = 2
+# for i in range(k):
+#     heapq.heappush(heap, nums[i])
+# for i in range(k,len(nums)):
+#     if nums[i]<=(heap[0]):
+#         continue
+#     heapq.heappop(heap)
+#     heapq.heappush(heap,nums[i])
+# print(heap[0])
+
+
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+#define D 256
+#define Q 101
+
+# int main() {
+#     char text[200], pat[100];
+#     int n, m, p = 0, t = 0, h = 1;
+#     int i, j, found = 0;
+
+#     printf("Enter text: ");
+#     scanf(" %[^\n]", text);
+
+#     printf("Enter pattern: ");
+#     scanf(" %[^\n]", pat);
+
+#     n = strlen(text);
+#     m = strlen(pat);
+
+#     if (m > n) {
+#         printf("Pattern not found\n");
+#         return 0;
+#     }
+
+#     // Calculate h
+#     for (i = 0; i < m - 1; i++)
+#         h = (h * D) % Q;
+
+#     // Calculate initial hashes
+#     for (i = 0; i < m; i++) {
+#         p = (D * p + pat[i]) % Q;
+#         t = (D * t + text[i]) % Q;
+#     }
+
+#     // Search pattern
+#     for (i = 0; i <= n - m; i++) {
+
+#         if (p == t) {
+#             for (j = 0; j < m; j++) {
+#                 if (text[i + j] != pat[j])
+#                     break;
+#             }
+
+#             if (j == m) {
+#                 printf("Pattern found at index %d\n", i);
+#                 found = 1;
+#             }
+#         }
+
+#         // Update rolling hash
+#         if (i < n - m) {
+#             t = (D * (t - text[i] * h) + text[i + m]) % Q;
+
+#             if (t < 0)
+#                 t += Q;
+#         }
+#     }
+
+#     if (found == 0)
+#         printf("Pattern not found\n");
+
+#     return 0;
+# }
+
 
     
-    
+import heapq
+from collections import Counter
+
+# nums = [1, 2, 2, 3,3]
+# k = 2
+
+# freq = Counter(nums)
+# heap = []
+
+# for num, count in freq.items():
+#     heapq.heappush(heap, (count, num))
+
+#     if len(heap) > k:
+#         heapq.heappop(heap)
+
+# result = []
+
+# while heap:
+#     result.append(heapq.heappop(heap)[1])
+
+# print(result)    
+
+
+
+
+# nums = [1, 2, 2, 3,3]
+# k = 2
+# result=[]
+# freq = Counter(nums)
+# heap = []
+# check=0
+# for number, count in freq.items():
+#     if check<2:
+#         heapq.heappush(heap, (count, number))
+#         check+=1
+#         continue
+#     if heap[0][0] < count:
+
+
+#         heapq.heappop(heap)
+#         heapq.heappush(heap, (count, number))
+# while heap:
+#     result.append(heapq.heappop(heap)[1])
+        
+        
+# print(result)    
+
+
+words = ["dog", "cat", "dog", "apple", "cat", "dog", "apple"]
+k = 2
+result=[]
+freq=Counter(words)
+check=0
+for word , count in freq.items():
+    if check<k:
+        heapq.heappush(heap,(count,word))
+        check+=1
+        continue
+    if heap[0][0]==count:
+        if heap[0][1]< word:
+            continue
+        else:
+            heapq.heappop(heap)
+            heapq.heappush(heap,(count,word))
+
+    elif heap[0][0]>count:
+        continue
+    else:
+        heapq.heappop(heap)
+        heapq.heappush(heap,(count,word))       
+while heap:
+    result.append(heapq.heappop(heap)[1])
+        
+result.reverse()        
+print(result)           
