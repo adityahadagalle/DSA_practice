@@ -3837,30 +3837,131 @@ from collections import Counter
 # print(result)    
 
 
-words = ["dog", "cat", "dog", "apple", "cat", "dog", "apple"]
-k = 2
-result=[]
-freq=Counter(words)
-check=0
-for word , count in freq.items():
-    if check<k:
-        heapq.heappush(heap,(count,word))
-        check+=1
-        continue
-    if heap[0][0]==count:
-        if heap[0][1]< word:
-            continue
-        else:
-            heapq.heappop(heap)
-            heapq.heappush(heap,(count,word))
+# words = ["dog", "cat", "dog", "apple", "cat", "dog", "apple"]
+# k = 2
+# result=[]
+# freq=Counter(words)
+# check=0
+# for word , count in freq.items():
+#     if check<k:
+#         heapq.heappush(heap,(count,word))
+#         check+=1
+#         continue
+#     if heap[0][0]==count:
+#         if heap[0][1]< word:
+#             continue
+#         else:
+#             heapq.heappop(heap)
+#             heapq.heappush(heap,(count,word))
 
-    elif heap[0][0]>count:
-        continue
-    else:
-        heapq.heappop(heap)
-        heapq.heappush(heap,(count,word))       
-while heap:
-    result.append(heapq.heappop(heap)[1])
+#     elif heap[0][0]>count:
+#         continue
+#     else:
+#         heapq.heappop(heap)
+#         heapq.heappush(heap,(count,word))       
+# while heap:
+#     result.append(heapq.heappop(heap)[1])
         
-result.reverse()        
-print(result)           
+# result.reverse()        
+# print(result)           
+
+
+
+# s = "tree"
+# result=''
+# freq=Counter(s)
+# check=0
+# for word, count in freq.items():
+#     heapq.heappush(heap,(count,word))
+      
+# while heap:
+#     count, char = heapq.heappop(heap)
+#     for i in range(count):
+#         result+=char
+
+# result=result[::-1]
+# print(result)           
+
+
+
+
+# import math
+
+
+
+# points = [[1,3],[-2,2]]
+# k = 1
+# check=0
+# result=[]
+# def fun(point):
+#     output=math.dist(point, [0, 0])
+#     return output
+# for i in range(len(points)):
+#     if check<k:
+#         count=fun(points[i])
+#         heapq.heappush(heap,(-count,points[i]))
+#         check+=1
+#         continue
+#     count=fun(points[i])
+#     heapq.heappush(heap,(-count,points[i]))
+#     heapq.heappop(heap)
+# while heap:
+#     result.append(heapq.heappop(heap)[1])
+# print(result)
+    
+
+    
+    
+    
+    
+# nums = [1, 2, 3, 4, 5]
+# k = 4
+# x = 3
+# result=[]
+# heap=[]
+# check=0
+# for i in range(len(nums)):
+#     if check<k:
+#         dist=abs(nums[i]-x)
+
+#         heapq.heappush(heap,(-dist,nums[i]))
+#         check+=1
+#         continue
+    
+#     dist=abs(nums[i]-x)
+#     if dist==-(heap[0][0]):
+
+#         if nums[i]<heap[0][1]:
+#             heapq.heappush(heap,(-dist,nums[i]))
+#         else:
+#             continue
+   
+#     heapq.heappush(heap,(-dist,nums[i]))
+#     heapq.heappop(heap)
+# while heap:
+#     result.append(heapq.heappop(heap)[1])
+# result.sort()
+# print(result)
+import heapq
+heap=[]          
+nums='aabcc'
+freq=Counter(nums)
+
+check=0
+res=[]
+for word,count in freq.items():
+
+
+    heapq.heappush(heap,(-count,word))
+
+    
+while heap:
+    count, char = heap[0]
+    print(char)
+    count-=1
+                       
+                     
+                     
+                     
+                     
+                     
