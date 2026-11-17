@@ -3942,135 +3942,96 @@ from collections import Counter
 #     result.append(heapq.heappop(heap)[1])
 # result.sort()
 # print(result)
-import heapq
-heap=[]          
-nums='aabcc'
-freq=Counter(nums)
-
-check=0
-res=[]
-for word,count in freq.items():
+        
+                     
 
 
-    heapq.heappush(heap,(-count,word))
 
-    
-while heap:
-    count, char = heap[0]
-    print(char)
-    count-=1
-    
-    
-    
-    
+# s = "aaabbc"
+
+# freq = Counter(s)
+
+# pq = [(-count, char) for char, count in freq.items()]
+# p=heapq.heapify(pq)
+
+# result = []
+# while pq:
+#     p=heapq.heappop(pq)
+#     if not result or result[-1]!=p:
+#         result.append(p[1])
+#         p = (p[0] + 1, p[1])
+#         if p[0]<0:
+#             heapq.heappush(pq,p)
+#     else:
+#         p1=heapq.heappop(pq)
+#         result.append(p1[0])
+#         p1=(p1[0]+1,p1[1])
+#         if p1[1]<0:
+#             heapq.heappush(pq,p1)
+#         heapq.heappush(pq,p)        
+        
+        
+# answer = "".join(result)
+# print(answer)              
+
+
+
 import heapq
 from collections import Counter
 
-class Solution:
-    def reorganizeString(self, s: str) -> str:
-        freq = Counter(s)
-        heap = [(-count, char) for char, count in freq.items()]
-        heapq.heapify(heap)
+# tasks = ["A", "A", "A", "B", "B", "B"]
+# n = 2
 
-        result = []
+# freq = Counter(tasks)
 
-        while heap:
-            count, char = heapq.heappop(heap)
+# heap = [-count for count in freq.values()]
+# heapq.heapify(heap)
 
-            if result and result[-1] == char:
-                if not heap:
-                    return ""
+# time = 0
 
-                count2, char2 = heapq.heappop(heap)
-                result.append(char2)
-                count2 += 1
+# while heap:
+#     temp = []
+#     cycle = n + 1
 
-                if count2 < 0:
-                    heapq.heappush(heap, (count2, char2))
+#     while cycle > 0 and heap:
+#         count = heapq.heappop(heap)
 
-                heapq.heappush(heap, (count, char))
-            else:
-                result.append(char)
-                count += 1
+#         if count < -1:
+#             temp.append(count + 1)
 
-                if count < 0:
-                    heapq.heappush(heap, (count, char))
+#         time += 1
+#         cycle -= 1
 
-        return "".join(result)                       
-                     
-                     
+#     for count in temp:
+#         heapq.heappush(heap, count)
 
-#include <stdio.h>
+#     if heap:
+#         time += cycle
 
-int a[20][20], visited[20], n;
+# print(time)
 
-// BFS
-void bfs(int start) {
-    int q[20], front = 0, rear = 0;
-    int i, v;
 
-    visited[start] = 1;
-    q[rear++] = start;
 
-    while (front < rear) {
-        v = q[front++];
-        printf("%d ", v);
+stones = [10, 8, 7, 5, 3]
+heap = [-stone for stone in stones]
+heapq.heapify(heap)
 
-        for (i = 0; i < n; i++) {
-            if (a[v][i] == 1 && visited[i] == 0) {
-                visited[i] = 1;
-                q[rear++] = i;
-            }
-        }
-    }
-}
+while len(heap)>1:
+    
+    x = -heapq.heappop(heap)
+    y = -heapq.heappop(heap)
+    
+    z=-heapq.heappop(heap)
+    heapq.heappush(heap,-z)
+if heap:
+    print(-heap[0])
+else:
+    print(0)
+    
 
-// DFS
-void dfs(int v) {
-    int i;
-
-    visited[v] = 1;
-    printf("%d ", v);
-
-    for (i = 0; i < n; i++) {
-        if (a[v][i] == 1 && visited[i] == 0) {
-            dfs(i);
-        }
-    }
-}
-
-int main() {
-    int i, j, s;
-
-    printf("Enter number of vertices: ");
-    scanf("%d", &n);
-
-    printf("Enter adjacency matrix:\n");
-
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
-            scanf("%d", &a[i][j]);
-        }
-    }
-
-    printf("Enter source vertex: ");
-    scanf("%d", &s);
-
-    printf("BFS: ");
-    for (i = 0; i < n; i++)
-        visited[i] = 0;
-
-    bfs(s);
-
-    printf("\nDFS: ");
-    for (i = 0; i < n; i++)
-        visited[i] = 0;
-
-    dfs(s);
-
-    return 0;
-}
-
-                     
-                     
+        
+                      
+                            
+    
+                   
                      
