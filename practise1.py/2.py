@@ -3976,8 +3976,8 @@ from collections import Counter
 
 
 
-import heapq
-from collections import Counter
+# import heapq
+# from collections import Counter
 
 # tasks = ["A", "A", "A", "B", "B", "B"]
 # n = 2
@@ -4011,27 +4011,304 @@ from collections import Counter
 # print(time)
 
 
+import heapq
+from collections import Counter
+from typing import List
 
-stones = [10, 8, 7, 5, 3]
-heap = [-stone for stone in stones]
-heapq.heapify(heap)
+# class Solution:
+#     def leastInterval(self, tasks: List[str], n: int) -> int:
+#         freq = Counter(tasks)
 
-while len(heap)>1:
+#         # max heap
+#         pq = [-count for count in freq.values()]
+#         heapq.heapify(pq)
+
+#         time = 0
+
+#         while pq:
+#             temp = []
+
+#             for i in range(n + 1):
+
+#                 if pq:
+#                     freq = -heapq.heappop(pq)
+#                     freq -= 1
+
+#                     if freq > 0:
+#                         temp.append(freq)
+
+#                 time += 1
+
+#                 if not pq and not temp:
+#                     break
+
+#             for freq in temp:
+#                 heapq.heappush(pq, -freq)
+
+#         return time
+
+
+
+# stones = [10, 8, 7, 5, 3]
+# heap = [-stone for stone in stones]
+# heapq.heapify(heap)
+
+# while len(heap)>1:
     
-    x = -heapq.heappop(heap)
-    y = -heapq.heappop(heap)
+#     x = -heapq.heappop(heap)
+#     y = -heapq.heappop(heap)
     
-    z=-heapq.heappop(heap)
-    heapq.heappush(heap,-z)
-if heap:
-    print(-heap[0])
-else:
-    print(0)
+#     z=-heapq.heappop(heap)
+#     heapq.heappush(heap,-z)
+# if heap:
+#     print(-heap[0])
+# else:
+#     print(0)
     
 
-        
+# nums = [3,2,1,5,6,4]
+# k = 2
+# heap=[]   
+# for i in range(len(nums)):
+#     if i<k:
+#         heapq.heappush(heap,nums[i])
+#         continue
+#     heapq.heappush(heap,nums[i])
+#     heapq.heappop(heap) 
+# print(heap[0])     
                       
                             
+
+# nums = [1,1,1,2,2,3]
+# k = 2
+# res=[]
+# heap=[]
+# freq=Counter(nums)
+# for number , count in freq.items():
+#     if len(heap)<k:
+#         heapq.heappush(heap,(count,number))
+#         continue
+#     heapq.heappush(heap,(count,number))
+#     heapq.heappop(heap)    
     
-                   
-                     
+# while heap:    
+#     res.append(heapq.heappop(heap)[1])
+# print(res)                
+import heapq
+from typing import List
+
+# class Solution:
+#     def findRelativeRanks(self, score: List[int]) -> List[str]:
+#         heap = []
+#         count = 1
+
+#         for index, value in enumerate(score):
+#             heapq.heappush(heap, (-value, index))
+
+#         res = [""] * len(score)
+
+#         while heap:
+#             val, idx = heapq.heappop(heap)
+
+#             if count == 1:
+#                 res[idx] = "Gold Medal"
+#             elif count == 2:
+#                 res[idx] = "Silver Medal"
+#             elif count == 3:
+#                 res[idx] = "Bronze Medal"
+#             else:
+#                 res[idx] = str(count)
+
+#             count += 1
+
+#         return res
+from collections import Counter
+import heapq
+
+# tasks = ["A","A","A","B","B","B"]
+# n = 2
+
+# freq = Counter(tasks)
+
+# heap = [(-count, task) for task, count in freq.items()]
+# heapq.heapify(heap)
+
+# next_available = {"A":1,"B":1}
+
+# time = 0
+
+# while heap:
+#     time += 1
+
+#     temp = []
+#     scheduled = False
+#     while heap:
+#         count,word=heapq.heappop(heap)
+#         if time>=next_available[word]:
+#             count+=1
+#             next_available[word]=n+1+time
+#             if count<0:
+#                 heapq.heappush(heap,(count,word))
+#             scheduled = True
+#             break    
+#         temp.append((count, word))
+#     for t in temp:
+#             heapq.heappush(heap, t)
+# print(time)            
+
+
+# nums=[1,2,3,6,2,3,4,7,8]
+
+# freq=Counter(nums)
+# gr=3
+# yenasu=0
+# last=0
+# heap = [(count, number) for number, count in freq.items()]
+# heapq.heapify(heap)
+# ress=[]
+
+# while heap:
+#     if last>=gr:
+#         print(True)
+#         break
+    
+#     count,number=heapq.heappop(heap)
+#     if yenasu>=gr:
+#         last+=1
+#         yenasu=1
+#     elif not ress:
+#         ress.append(number)
+#         yenasu+=1
+#     elif ress[-1]<=number:
+        
+        
+        
+#         yenasu+=1
+#         ress.append(number)
+    
+#         count-=1
+#         if count>0:
+#             heapq.heappush(heap,(count,number))
+#     else:
+#         heapq.heappush(heap,(count,number))
+        
+        
+# else:
+#     print(False)
+        
+        
+# print(ress)        
+        
+        
+from collections import Counter
+import heapq
+
+# nums = [1,2,3,6,2,3,4,7,8]
+
+# freq = Counter(nums)
+
+# gr = 3
+
+# yenasu = 0
+# last = 0
+
+# heap = [(number, count) for number, count in freq.items()]
+# heapq.heapify(heap)
+
+# ress = []
+
+# while heap:
+
+#     if last >= gr:
+#         print(True)
+#         break
+
+#     number, count = heapq.heappop(heap)
+#     if yenasu>=gr:
+#         last+=1
+#         yenasu=1    
+#     if not ress:
+#         ress.append(number)
+#         count -= 1
+#         yenasu+=1
+        
+
+#         if count > 0:
+#             heapq.heappush(heap, (number, count))
+
+#     elif ress[-1] < number:
+#         ress.append(number)
+#         yenasu+=1
+#         count -= 1
+
+#         if count > 0:
+#             heapq.heappush(heap,(number, count))
+
+#     else:
+#         heapq.heappush(heap, (number, count))
+        
+
+# else:
+#     print(False)
+
+# print(ress)     
+
+
+
+   
+   
+# from collections import Counter
+# import heapq
+
+# nums = [1,2,3,6,2,3,4,7,8]
+# groupSize = 3
+
+# freq = Counter(nums)
+
+# heap = list(freq.keys())
+# heapq.heapify(heap)
+
+# while heap:
+#     start = heap[0]
+
+#     for num in range(start, start + groupSize):
+
+#         if freq[num] == 0:
+#             print(False)
+#             exit()
+
+#         freq[num] -= 1
+
+#         if freq[num] == 0:
+
+#             if num != heap[0]:
+#                 print(False)
+#                 exit()
+
+#             heapq.heappop(heap)
+
+# print(True)
+
+            
+            
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+import json
+
+app=FastAPI()
+
+def load():
+    with open("patients.json","r") as f:
+        data=json.load(f)
+    return data
+
+
+def save_model(data):
+    with open ("patients.json","w") as f:
+        json.dump(data,f)
+    
+    
+@app.get("/")
+def home():
+    data=load()
+    return data                
