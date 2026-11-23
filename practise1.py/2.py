@@ -4289,26 +4289,60 @@ import heapq
 
 # print(True)
 
-            
-            
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import json
-
-app=FastAPI()
-
-def load():
-    with open("patients.json","r") as f:
-        data=json.load(f)
-    return data
-
-
-def save_model(data):
-    with open ("patients.json","w") as f:
-        json.dump(data,f)
+        
+        
+# heap=[]
+# arr = [40,10,20,30]
+# freq=Counter(arr)
+# count=0
+# same=0
+# res=[0]*len(arr)
+# for index, number in enumerate(arr):
+#     heapq.heappush(heap, (number, index))
+# while heap:
+#     number,index=heapq.heappop(heap)
     
+#     if same==number:
+#         res[index]=count
+#     else:
+#         count+=1
+#         res[index]=count
+#         same=number
+# print(res)        
+
+
+# barcodes = [1,1,1,2,2,2]
+# freq=Counter(barcodes)
+# res=[]
+
+# heap = [(-count,number) for number,count in freq.items()]
+# heapq.heapify(heap)
+# while heap:
+#     count1,number1=heapq.heappop(heap)
+#     if not res or res[-1]!=number1:
+
+#         res.append(number1)
+#         count1+=1
+#         if count1<0:
+#             heapq.heappush(heap,(count1,number1))
+#     else:
+#         count2,number2=heapq.heappop(heap)
+#         res.append(number2)
+#         count2+=1
+#         if count2<0:
+#             heapq.heappush(heap,(count2,number2))       
+#         heapq.heappush(heap,(count1,number1))
+        
+# print(res)
+
+
+nums = [1,2]
+heap=[]
+for i in range(len(nums)):
+    heapq.heappush(heap,nums[i])
+# if len(heap)<3:
+#     print(heap[-1])
+# else:    
+#     print(heap[0])    
     
-@app.get("/")
-def home():
-    data=load()
-    return data                
+print(heap)
