@@ -1,2 +1,2 @@
 
-# gr=3
+        elif res[-1]!=nums[i]:

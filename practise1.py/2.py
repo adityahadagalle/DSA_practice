@@ -4336,13 +4336,83 @@ import heapq
 # print(res)
 
 
-nums = [1,2]
-heap=[]
-for i in range(len(nums)):
-    heapq.heappush(heap,nums[i])
-# if len(heap)<3:
-#     print(heap[-1])
+# nums=[3,2,1]
+# heap=[]
+# freq=Counter(nums)
+# for number,count in freq.items():
+#     heapq.heappush(heap,(number,count))
+
+# if len(heap)==2:
+#     print(heap[-1][0])
 # else:    
-#     print(heap[0])    
+#     print(heap[0][1])    
     
-print(heap)
+# print(heap)
+
+
+# nums = ['2','21','12','1']
+# nums = [int(x) for x in nums]
+# k = 3
+# heap=[]
+# for i in range(len(nums)):
+#     if i<k:
+#         heapq.heappush(heap,nums[i])
+#         continue
+#     heapq.heappush(heap,nums[i])
+#     heapq.heappop(heap)
+# print(heap[0])    
+
+# import heapq
+
+# nums = [5,4,5,3,4,6]
+# k = 2
+
+# distinct = set(nums)
+
+# heap = []
+
+# for num in distinct:
+#     if len(heap) < k:
+#         heapq.heappush(heap, num)
+#         continue
+#     heapq.heappush(heap,num)
+#     heapq.heappop(heap)
+
+# print(heap[0])
+
+
+tasks = ["A","A","A","B","B","C"]
+cooldown = 2
+freq=Counter(tasks)
+temp=[]
+res=[]
+step=0
+freq1={"A":1,"B":1,"C":1}
+heap=[(-count,number) for number,count in freq.items()]
+heapq.heapify(heap)
+while heap:
+    temp=[]
+    step+=1
+    sch=False
+    while heap:
+
+        fp, word = heapq.heappop(heap)
+        if freq1[word] <= step:
+            res.append(word)
+            freq1[word] = cooldown + 1 + step
+            sch=True
+            fp += 1
+            if fp < 0:
+                temp.append((fp, word))
+            break
+        else:
+            temp.append((fp,word))
+
+    for word in temp:
+        heapq.heappush(heap,word)
+    if not sch:
+        res.append("idle")    
+print(res)
+        
+        
+    
