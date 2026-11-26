@@ -4381,38 +4381,94 @@ import heapq
 # print(heap[0])
 
 
-tasks = ["A","A","A","B","B","C"]
-cooldown = 2
-freq=Counter(tasks)
-temp=[]
-res=[]
-step=0
-freq1={"A":1,"B":1,"C":1}
-heap=[(-count,number) for number,count in freq.items()]
+# tasks = ["A","A","A","B","B","C"]
+# cooldown = 2
+# freq=Counter(tasks)
+# temp=[]
+# res=[]
+# step=0
+# freq1={"A":1,"B":1,"C":1}
+# heap=[(-count,number) for number,count in freq.items()]
+# heapq.heapify(heap)
+# while heap:
+#     temp=[]
+#     step+=1
+#     sch=False
+#     while heap:
+
+#         fp, word = heapq.heappop(heap)
+#         if freq1[word] <= step:
+#             res.append(word)
+#             freq1[word] = cooldown + 1 + step
+#             sch=True
+#             fp += 1
+#             if fp < 0:
+#                 temp.append((fp, word))
+#             break
+#         else:
+#             temp.append((fp,word))
+
+#     for word in temp:
+#         heapq.heappush(heap,word)
+#     if not sch:
+#         res.append("idle")    
+# print(res)
+        
+        
+# ropes = [4, 3, 2, 6]
+
+# heap=[(ropes[i]) for i in range(len(ropes))]
+# cost=0
+# heapq.heapify(heap)
+# while len(heap)>1:
+#        p1=heapq.heappop(heap)
+#        p2=heapq.heappop(heap)
+#        k=p1+p2
+       
+#        cost+=k
+       
+#        heapq.heappush(heap,(p1+p2))
+# print(cost)
+
+nums = [1,1,2,2,3,3]
+teamSize = 3
+heap=[nums[i]for i in range(len(nums))]
 heapq.heapify(heap)
+output=0
+count=0
+check=0
+res=[]
 while heap:
-    temp=[]
-    step+=1
-    sch=False
-    while heap:
-
-        fp, word = heapq.heappop(heap)
-        if freq1[word] <= step:
-            res.append(word)
-            freq1[word] = cooldown + 1 + step
-            sch=True
-            fp += 1
-            if fp < 0:
-                temp.append((fp, word))
-            break
-        else:
-            temp.append((fp,word))
-
-    for word in temp:
-        heapq.heappush(heap,word)
-    if not sch:
-        res.append("idle")    
-print(res)
-        
-        
+        if count<teamSize:
+            popp=heapq.heappop(heap)
+            if popp!=check+1:
+                continue
+            count+=1
+            check+=1
+        if count==teamSize:
+            output+=1
+            count=0
+            if heap:
+                k=heapq.heappop(heap)
+                check=popp-1
+                heapq.heappush(heap,popp)
+            
+print(output)        
+            
     
+    
+nums = [1,1,2,2,3,3]
+teamSize = 3
+heap=[nums[i]for i in range(len(nums))]
+heapq.heapify(heap)
+output=0
+count=0
+check=0
+res=[]
+while heap:
+    for i in range(teamSize+1):
+        popp=heapq.heappop(heap)
+        if popp!=check+1:
+            
+print(output)        
+                
