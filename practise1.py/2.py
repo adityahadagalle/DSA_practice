@@ -4470,5 +4470,3 @@ while heap:
         popp=heapq.heappop(heap)
         if popp!=check+1:
             
-print(output)        
-                
